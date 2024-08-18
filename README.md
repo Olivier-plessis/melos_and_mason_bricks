@@ -21,43 +21,48 @@ A collection of bricks that enable developers to be more productive when writing
 
 ---
 
-## Melos 🚀
+## Installation 💾
 
-Melos is a tool for managing multiple packages in a single repository. It simplifies dependency management and script execution in a multi-package environment.
+Install Melos as a global package via pub.dev so it can be used from anywhere on your system:
 
-##### New to Melos? 
-Read [the documentation][melos_doc_link] to learn how to configure Dart projects with multiple packages!
-
-| Project | Description| Version |
-| - | - | - |
-| [melos starter app ](https://github.com/Olivier-plessis/melos_and_mason_bricks/tree/feature/melos_starter_app)| Start a project quickly! | 0.0.1
-
-
-## Bricks 🧱
-
-New to Mason? Read [the documentation][mason_doc_link] to learn how to spin up these bricks!
-
-| Brick | Description| Version |
-| - | - | - |
-| [scaffold_app]()| A brick to generate a new Flutter app with clean architecture and best practices. | 0.0.1
-| [feature_brick]()| A brick to add a new feature to your app with go_router! | 0.0.1
-| [feature_brick_builder]()| A brick to add a new feature to your app with go_router_builder! | 0.0.1
-|Work in progress...| Another brick to create your feature using best practices and your state management of choice!
-
-## Work in progress
-
-- App UI  - Color, theme, localization, etc...
-- Component UI  - TextField, Button, etc...
-- .... 
-
-## Contributing
-
-Please open an issue and/or create a pull request if you find a bug or have a feature request.
-
-## Maintainers
-
-- [Olivier PLESSIS](https://github.com/Olivier_plessis)
+``` sh
+dart pub global activate melos
+```
+And if you want to use Mason to generate code, install it as a global package via pub.dev so it can be used from anywhere on your system:
+``` sh
+dart pub global activate mason_cli
+```
 
 
-[mason_doc_link]: https://docs.brickhub.dev/category/getting-started
-[melos_doc_link]: https://melos.invertase.dev/
+## Usage 🕹️
+
+You can run the following command in your terminal:
+procede to intialize the melos project
+ - in the melos.yaml file, change the name of the project
+``` sh
+name: starter_app
+```
+
+and run
+
+``` sh
+melos bs
+```
+
+
+## Output 📦
+
+``` sh
+project_name
+├── apps
+│   ├── app_name
+├── packages
+│   ├── packages_name
+├── mason.yaml  //remove if you don't need it
+├── melos.yaml
+├── pubspec.yaml
+├── README.md 
+├── analysis_options.yaml //remove if you don't need it
+├── all_lint_rules.yaml  //remove if you don't need it
+ ```
+

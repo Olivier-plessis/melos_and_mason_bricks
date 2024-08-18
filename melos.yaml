@@ -1,4 +1,4 @@
-name: starter_app
+name: starter_app //replace with your project name
 
 packages:
   - app/**
@@ -16,45 +16,13 @@ scripts:
     run: melos exec -- dart fix --apply --code=unused_import
     description: remove unused import in all file.
 
-  build_runner:
-    run: melos exec --depends-on="build_runner" -- "dart run build_runner build -d"
-    description: Build all generated files for Dart & Flutter packages in this project.
-
-  watch_runner:
-    run: melos exec --depends-on="build_runner" -- "dart watch build_runner build -d"
-    description: Watch all generated files for Dart & Flutter packages in this project.
-
   all:
     run: |
       melos clean
       melos bs
-      melos build_runner  
 
 command:
   bootstrap:
     environment:
       sdk: ">=3.3.1 <4.0.0"
       flutter: ">=3.3.1 <4.0.0"
-    dependencies:
-      dio: ^5.6.0
-      flex_color_scheme: ^7.3.1
-      flutter_hooks: ^0.20.5
-      fpdart: ^1.1.0
-      freezed_annotation: ^2.4.4
-      go_router: ^14.2.3
-      hooks_riverpod: ^2.5.1
-      json_annotation: ^4.9.0
-      riverpod_annotation: ^2.3.5
-
-    dev_dependencies:
-      flutter_lints: ^4.0.0
-      build_runner: ^2.4.12
-      go_router_builder: ^2.7.1
-      riverpod_generator: ^2.4.2
-      freezed: ^2.5.7
-      json_serializable: ^6.8.0
-      custom_lint: ^0.6.5
-      http_mock_adapter: ^0.6.1
-      logger: ^2.4.0
-      mocktail: ^1.0.4
-      riverpod_lint: ^2.3.12
