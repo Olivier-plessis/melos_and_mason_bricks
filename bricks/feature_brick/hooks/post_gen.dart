@@ -3,6 +3,7 @@ import 'package:mason/mason.dart';
 import 'execute_and_log.dart';
 import 'post/add_constant_route.dart';
 import 'post/add_route.dart';
+import 'post/add_scaffold_nav.dart';
 import 'post/app_build_runner.dart';
 import 'post/dart_formater.dart';
 import 'post/move_file.dart';
@@ -46,10 +47,19 @@ Future<void> run(HookContext context) async {
   await executeAndLog(
     context: context,
     cb: runGeneratedRouteConstant,
-    message: 'Add route in progress ..',
+    message: 'Add route constant in progress ..',
   );
   await Future<void>.delayed(_duration);
 
+  if (context.vars['page'] as bool &&
+      context.vars['addToNavigationBar'] as bool) {
+    await executeAndLog(
+      context: context,
+      cb: runGeneratedNavigationRoute,
+      message: 'Add navigation route in progress ..',
+    );
+    await Future<void>.delayed(_duration);
+  }
   await executeAndLog(
     context: context,
     cb: runBuildRunner,

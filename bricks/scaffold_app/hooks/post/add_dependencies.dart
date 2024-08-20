@@ -17,6 +17,7 @@ Future<void> addDependencies(HookContext context) async {
     'go_router',
     'flex_color_scheme',
     'flutter_screenutil',
+    'fpdart',
     if (addDependencies.isNotEmpty) addDependencies
   ];
 
