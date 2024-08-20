@@ -53,7 +53,7 @@ vars:
     description: Make a isStateFull widget
     default: true
     prompt: is isStateFull or if you don't need a new page just press enter?
- addToNavigationBar:
+  addToNavigationBar:
     type: boolean
     description: Add feature in the navigation bar?
     default: true
