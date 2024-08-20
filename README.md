@@ -54,7 +54,7 @@ melos bs
 
 ``` sh
 project_name
-├── apps
+├── app
 │   ├── app_name
 ├── packages
 │   ├── packages_name
