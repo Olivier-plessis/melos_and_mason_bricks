@@ -62,7 +62,6 @@ project_name
 ├── melos.yaml
 ├── pubspec.yaml
 ├── README.md 
-├── analysis_options.yaml //remove if you don't need it
-├── all_lint_rules.yaml  //remove if you don't need it
+├── analysis_options.yaml 
+├── all_lint_rules.yaml 
  ```
-
