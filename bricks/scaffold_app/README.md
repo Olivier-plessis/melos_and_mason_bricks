@@ -68,6 +68,8 @@ Then add your properties!
 | `add_dev_dependencies`| Add dev dependencies to your project and separate them with a comma | ''                                   | `string` |
 | `codegen`             | Do you want to use go_router_builder?                      | false                                          | `boolean`|
 
+##
+Follow the instructions in the prompt and **VOILA**, your app is now installed inside app folder and configured.
 
 ## Output 📦
 
@@ -92,14 +94,18 @@ Then add your properties!
 │   │       │   │   ├──  ├── provider
 │   │       │   ├──         ├── counter_provider.dart
 │   │       │   ├── ├──  ├── counter_screen.dart
+│   │       │   ├── ├──  ├── empty_screen.dart
 │   │   └── router
 │   │       ├── app_router.dart // go_router provider
+│   │       ├── app_routes.dart // go_router routes
 │   │       ├── route_constants.dart // constants for go_router and create if you don't want to use go_router_builder
+│   │       ├── app_shell_routes.dart // go_router routes for the shell navigation with go_router_builder
 │   │       ├── route_constants.dart // constants for go_router
-│   │       ├── route_constants.dart // constants for go_router
-│   │       ├── route_constants.dart // constants for go_router
+│   │       ├── not_found_screen.dart // not found screen
+│   │       ├── scaffold_with_nested_navigation.dart // scaffold with  navigation bar and navigation rail
 │   │   └── app.dart
+│   │   └── splash_screen.dart // splash screen
 │   ├── main.dart
  ```
 
-Follow the instructions in the prompt and **VOILA**, your app is now installed and configured.
+
