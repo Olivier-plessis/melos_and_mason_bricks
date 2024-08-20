@@ -109,3 +109,12 @@ Follow the instructions in the prompt and **VOILA**, your app is now installed i
  ```
 
 
+The analysis_options file in your new project is already configured to use the custom_lint plugin.
+
+``` sh
+import: ../../analysis_options.yaml
+analyzer:
+  plugins:
+    - custom_lint
+```
+
