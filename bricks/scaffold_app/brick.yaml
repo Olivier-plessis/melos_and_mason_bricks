@@ -44,11 +44,6 @@ vars:
       - windows
       - linux
       - web
-  publish:
-    type: boolean
-    prompt: Do you want this package to be published to pub.dev?
-    default: false
-    description: You can always easily change that later
   add_dependencies :
     type: string
     prompt: Add dependencies to your project and separate them with a comma?

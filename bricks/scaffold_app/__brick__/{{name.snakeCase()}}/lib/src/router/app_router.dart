@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-
-{{#codegen}}
 import 'package:{{name.snakeCase()}}/src/router/app_routes.dart';
+{{#codegen}}
+import 'package:{{name.snakeCase()}}/src/router/app_shell_routes.dart';
+
 {{/codegen}}
 
-import 'package:{{name.snakeCase()}}/src/router/app_shell_routes.dart';
+
 import 'package:{{name.snakeCase()}}/src/router/not_found_screen.dart';
 {{^codegen}}
 import 'package:{{name.snakeCase()}}/src/router/route_constants.dart';

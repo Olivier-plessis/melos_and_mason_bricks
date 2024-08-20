@@ -1,4 +1,4 @@
-# scaffold_riverpod_app
+# scaffold_app
 
 [![Powered by Mason](https://img.shields.io/endpoint?url=https%3A%2F%2Ftinyurl.com%2Fmason-badge)](https://github.com/felangel/mason)
 
@@ -6,37 +6,44 @@ A new brick created with the Mason CLI.
 
 ## Getting Started 🚀
 
- **scaffold_riverpod_app**, lets you :
+ **scaffold_app**, lets you :
 
 - Set-up a base Flutter project with **up-to-date dependencies**
-- Customize the usage of Riverpod's ecosystem: codegen? hooks? freezed? We've got you covered
+- Customize the usage of Riverpod's ecosystem: codegen hooks freezed We've got you covered
 - Select your platforms (android, ios, ...)
 - Use certain analysis customizations by default, with analysis_options.dart and flutter_lints (by default).
 - For the example, this brick generates a counter and a dark/light theme selector managed on Riverpod.
 
 ### Dependency installed by default
 
-Before anything, take a look @ [its depndencies](hooks/post/add_dependencies.dart).
+Before anything, take a look @ [its dependencies](hooks/post/add_dependencies.dart).
 
-And dev dependencies, take a look @ [its dev depndencies](hooks/post/add_dev_dependencies.dart).
+And dev dependencies, take a look @ [its dev dependencies](hooks/post/add_dev_dependencies.dart).
 
 ## Installation
 
 Once you have Mason installed,
 
-you can add the **scaffold_riverpod_app** brick to the configuration by adding the following code to your **mason.yaml** file:
+you can add the **scaffold_app** brick to the configuration by adding the following code to your **mason.yaml** file:
 
 ``` yaml
 bricks:
-  scaffold_riverpod_app:
+  scaffold_app:
     git:
-      url: 'https://github.com/Olivier-plessis/mason_brick_solid_principles_riverpod'
-      path: 'bricks/scaffold_riverpod_app'
+      url: "https://github.com/Olivier-plessis/melos_and_mason_bricks.git"
+      path: bricks/scaffold_app
+      ref: feature/bricks
+```
+
+or with this command
+
+```sh
+mason add scaffold_app --git-url='https://github.com/Olivier-plessis/melos_and_mason_bricks.git' --git-path='bricks/scaffold_app' --git-ref='feature/bricks'
 ```
 
 ## Usage 🕹️
 
-To use the **clean_architecture_feature_riverpod** brick, and generate code. You can run the following command in your terminal:
+To use this brick, and generate code. You can run the following command in your terminal:
 
 ``` sh
 mason get
@@ -45,8 +52,22 @@ mason get
 and
 
 ``` sh
-mason make scaffold_riverpod_app
+mason make scaffold_app
 ```
+
+Then add your properties! 
+## Variables for the Command Line ✨
+
+| Variable             | Description                                                | Default                                         | Type     |
+| -------------------- | ---------------------------------------------------------- | ----------------------------------------------- | -------- |
+| `name`                | The name of the project                                   | flutter_app                                     | `string` |
+| `org`                 | The name of the organization                              | com.example                                     | `string` |
+| `description`         | The description of your app                               | An awesome flutter app generate by mason        | `string` |
+| `platforms`           | Select your platform desired                              | android, ios, macos, windows, linux, web        | `array`  |
+| `add_dependencies`    | Add dependencies to your project and separate them with a comma | ''                                       | `string` |
+| `add_dev_dependencies`| Add dev dependencies to your project and separate them with a comma | ''                                   | `string` |
+| `codegen`             | Do you want to use go_router_builder?                      | false                                          | `boolean`|
+
 
 ## Output 📦
 
@@ -72,7 +93,10 @@ mason make scaffold_riverpod_app
 │   │       │   ├──         ├── counter_provider.dart
 │   │       │   ├── ├──  ├── counter_screen.dart
 │   │   └── router
-│   │       ├── app_router.dart // go_router
+│   │       ├── app_router.dart // go_router provider
+│   │       ├── route_constants.dart // constants for go_router and create if you don't want to use go_router_builder
+│   │       ├── route_constants.dart // constants for go_router
+│   │       ├── route_constants.dart // constants for go_router
 │   │       ├── route_constants.dart // constants for go_router
 │   │   └── app.dart
 │   ├── main.dart
