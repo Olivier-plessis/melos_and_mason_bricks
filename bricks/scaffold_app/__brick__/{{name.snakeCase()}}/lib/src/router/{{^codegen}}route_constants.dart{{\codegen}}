@@ -1,0 +1,23 @@
+enum AppPage {
+  home,
+  splash,
+  empty
+}
+
+extension AppPageExtension on AppPage {
+  String get routePath {
+    return switch (this) {
+      AppPage.home => '/',
+      AppPage.splash => '/splash',
+      AppPage.empty => '/empty',
+    };
+  }
+
+  String get routeName {
+    return switch (this) {
+      AppPage.home => 'HOME',
+      AppPage.splash => 'SPLASH',
+      AppPage.empty => 'EMPTY',
+    };
+  }
+}
