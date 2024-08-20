@@ -1,7 +1,7 @@
 enum AppPage {
   home,
   splash,
-  empty
+  empty,
 }
 
 extension AppPageExtension on AppPage {
