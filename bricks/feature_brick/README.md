@@ -6,7 +6,7 @@ A new brick created with the Mason CLI.
 
 ## Important Note
 
-This brick works best with [this other brick](https://github.com/Olivier-plessis/mason_brick_solid_principles_riverpod/blob/main/bricks/riverpod_solid_principles_brick/README.md), that sets up the architecture mentioned above. It also prepares the ground for you to set up code generation, layering, etc.
+This brick works best with [this other brick](https://github.com/Olivier-plessis/melos_and_mason_bricks/tree/feature/melos_starter_app), that sets up the architecture mentioned above. It also prepares the ground for you to set up code generation, layering, etc.
 
 ### Folder architecture is based on solid principles
 
@@ -18,12 +18,21 @@ This brick works best with [this other brick](https://github.com/Olivier-plessis
 
 Once you have Mason installed,
 
-you can add the **riverpod_clean_archi** brick to the configuration by adding the following code to your **mason.yaml** file:
+you can add the **feature_brick** brick to the configuration by adding the following code to your **mason.yaml** file:
 
 ``` yaml
 bricks:
   feature_brick:
-    path: 'bricks/feature_brick'
+    git:
+      url: "https://github.com/Olivier-plessis/melos_and_mason_bricks.git"
+      path: bricks/feature_brick
+      ref: feature/bricks
+```
+
+or with this command
+
+```sh
+mason add feature_brick --git-url='https://github.com/Olivier-plessis/melos_and_mason_bricks.git' --git-path='bricks/feature_brick' --git-ref='feature/bricks'
 ```
 
 ## Usage 🕹️
@@ -40,9 +49,35 @@ and
 mason make feature_brick
 ```
 
+### Properties for the Command Line ✨
+
+| Variable             | Description                                                | Default                                         | Type     |
+| -------------------- | ---------------------------------------------------------- | ----------------------------------------------- | -------- |
+| `platform`            | Directory where the feature will be generated             | app                                     | `array`  |
+| `appName`             | The name of your app                                       | flutter_app                                     | `string` |
+| `feature_name`        | The name of the feature                                    | feature_name                                     | `string` |
+| `page`                | Does this feature need a new page?                         | true                                            | `boolean`|
+| `isStateFull`         | Pass true if you want to use isStateFull widget or just return if you don't need a new page | true                                            | `boolean`|
+| `addToNavigationBar`    |  Add feature in the navigation bar or just in the stack? | true                                            | `boolean`|
+
+
+**Upon creating a new feature, you will be asked to specify the target platform. If it's your initial feature for this project, the platform-specific 'app' and 'package' directories will be auto-generated**
+
 ## Important Note to use it
 
-**On the first prompt, add the name of your app**
+### Enhanced Documentation: Automatic Routing Management 📖
+
+**Overview**
+When a new feature is created, our application's routing system is automatically updated to include the new page. This automation greatly simplifies development by avoiding manual route configuration.
+
+**Impacted files**
+Changes are made to the following files:
+
+ - **routes_constant.dart**: This file contains the definition of named routes used in the application. A new entry is added for the route corresponding to the new page.
+ - **app_routes.dart**: This file manages the global configuration of routes, including the application's initial route. It ensures consistency between the routes defined and their use in the application.
+ - **scaffold_with_nested_navigation.dart**: If you have specified that the new page should be accessible from the navigation bar, this file is updated. The NavigationRail and NavigationBar widgets are modified to include a new element corresponding to the new route.
+**A minimum of two menu items is required.**
+
 
 ## Output 📦
 
