@@ -37,6 +37,8 @@ Read [the documentation][melos_doc_link] to learn how to configure Dart projects
 
 New to Mason? Read [the documentation][mason_doc_link] to learn how to spin up these bricks!
 
+#### Each bricks is to be used with melos starter app
+
 | Brick | Description| Version |
 | - | - | - |
 | [scaffold_app](https://github.com/Olivier-plessis/melos_and_mason_bricks/tree/feature/bricks/bricks/scaffold_app)| A brick to generate a new Flutter app with clean architecture and best practices. | 0.0.1
