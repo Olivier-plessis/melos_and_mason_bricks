@@ -2,11 +2,6 @@
 # Run "mason get" to install all registered bricks.
 # To learn more, visit https://docs.brickhub.dev.
 bricks:
-  #git:
-    #url: 'https://github.com/Olivier-plessis/mason_brick_solid_principles_riverpod'
-    #path: 'bricks/scaffold_riverpod_app'
-  #OR LOCALLY
-   #scaffold_riverpod_app:
-   # path: './bricks/scaffold_riverpod_app'
+
 
    
