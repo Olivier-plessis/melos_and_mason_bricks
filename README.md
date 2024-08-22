@@ -35,15 +35,19 @@ dart pub global activate mason_cli
 
 
 ## Usage 🕹️
-
-You can run the following command in your terminal:
-procede to intialize the melos project
- - in the melos.yaml file, change the name of the project
 ``` sh
-name: starter_app
+git clone git@github.com:Olivier-plessis/melos_and_mason_bricks.git project_name_here --branch feature/melos_starter_app
+
 ```
 
-and run
+
+
+ - in the melos.yaml file, change the name of the project
+``` sh
+name: project_name_here
+```
+You can run the following command in your terminal:
+procede to intialize the melos project and run
 
 ``` sh
 melos bs
@@ -54,7 +58,7 @@ melos bs
 
 ``` sh
 project_name
-├── app
+├── app 
 │   ├── app_name
 ├── packages
 │   ├── packages_name
@@ -65,3 +69,4 @@ project_name
 ├── analysis_options.yaml 
 ├── all_lint_rules.yaml 
  ```
+App and Packages folders are generated with [scaffold_app](https://github.com/Olivier-plessis/melos_and_mason_bricks/tree/feature/bricks/bricks/scaffold_app) brick 
