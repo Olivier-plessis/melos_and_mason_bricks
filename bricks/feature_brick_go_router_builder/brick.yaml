@@ -29,7 +29,7 @@ vars:
   platform:
     type: array
     prompt: What platform do you want to build for?
-    default:
+    defaults:
       - app
     values:
       - app
