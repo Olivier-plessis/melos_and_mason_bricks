@@ -1,4 +1,4 @@
-name: feature_brick
+name: feature_go_router_builder
 description: A new brick created with the Mason CLI.
 
 # The following defines the brick repository url.
