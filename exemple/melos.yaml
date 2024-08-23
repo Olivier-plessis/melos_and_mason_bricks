@@ -1,5 +1,4 @@
-name: starter_app //replace with your project name
-
+name: exemple 
 packages:
   - app/**
   - packages/**
@@ -16,10 +15,19 @@ scripts:
     run: melos exec -- dart fix --apply --code=unused_import
     description: remove unused import in all file.
 
+  build_runner:
+    run: melos exec --depends-on="build_runner" -- "dart run build_runner build -d"
+    description: Build all generated files for Dart & Flutter packages in this project..
+
+  watch_runner:
+    run: melos exec --depends-on="build_runner" -- "dart run build_runner watch -d"
+    description: Build all generated files for Dart & Flutter packages in this project.
+
   all:
     run: |
       melos clean
       melos bs
+      melos build_runner
 
 command:
   bootstrap:
