@@ -1,0 +1,6 @@
+name: lisa
+
+environment:
+  sdk: '>=3.4.4 <4.0.0'
+dev_dependencies:
+  melos: ^6.1.0

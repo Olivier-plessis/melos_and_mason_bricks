@@ -1,0 +1,28 @@
+name: starter_app //replace with your project name
+
+packages:
+  - app/**
+  - packages/**
+
+scripts:
+  analyze:
+    exec: dart analyze .
+
+  analyze:custom_lint:
+    run: melos exec -- dart run custom_lint
+    description: Run `dart custom_lint ` in all packages.
+
+  remove_unused_import:
+    run: melos exec -- dart fix --apply --code=unused_import
+    description: remove unused import in all file.
+
+  all:
+    run: |
+      melos clean
+      melos bs
+
+command:
+  bootstrap:
+    environment:
+      sdk: ">=3.3.1 <4.0.0"
+      flutter: ">=3.3.1 <4.0.0"

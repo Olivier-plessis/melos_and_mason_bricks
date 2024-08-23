@@ -1,0 +1,16 @@
+bricks:
+  scaffold_app:
+    git:
+      url: "https://github.com/Olivier-plessis/melos_and_mason_bricks.git"
+      path: bricks/scaffold_app
+      ref: feature/bricks
+  feature_brick:
+    git:
+      url: "https://github.com/Olivier-plessis/melos_and_mason_bricks.git"
+      path: bricks/feature_brick
+      ref: feature/bricks
+  feature_go_router_builder:
+    git:
+      url: "https://github.com/Olivier-plessis/melos_and_mason_bricks.git"
+      path: bricks/feature_brick_go_router_builder
+      ref: feature/bricks
