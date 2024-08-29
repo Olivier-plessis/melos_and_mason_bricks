@@ -9,7 +9,7 @@ Future<void> runMoveFileGenerated(HookContext context) async {
   final platforms = context.vars['platform'] as String;
 
   var result = await io.Process.run(
-      'mv', [featureName, '${platforms.first}/$appName/lib/src/feature']);
+      'mv', [featureName, '${platforms}/$appName/lib/src/feature']);
 
   io.stdout.write(result.stdout);
   io.stderr.write(result.stderr);
