@@ -32,7 +32,7 @@ io.File _getPubspec(HookContext context) {
 
   try {
     return io.File.fromUri(
-        Uri.file('${platforms.first}/$appName/pubspec.yaml'));
+        Uri.file('${platforms}/$appName/pubspec.yaml'));
   } on io.PathNotFoundException {
     throw const NoPubspecFoundException();
   }
