@@ -27,10 +27,9 @@ environment:
 #  * an optional separator (list only)
 vars:
   platform:
-    type: array
+    type: enum
+    description: Your platform destination
     prompt: What platform do you want to build for?
-    defaults:
-      - app
     values:
       - app
       - packages
