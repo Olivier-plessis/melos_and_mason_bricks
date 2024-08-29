@@ -72,7 +72,7 @@ Future<void> runGeneratedRouteConstant(HookContext context) async {
   final isPage = context.vars['page'] as bool;
   final platforms = context.vars['platform'] as String;
 
-  if (platforms.first == 'app' && isPage) {
+  if (platforms == 'app' && isPage) {
     file.writeAsStringSync(newContent);
     log('Route added successfully.');
   }

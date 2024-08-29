@@ -61,7 +61,7 @@ Future<void> runGeneratedSingleRoute(HookContext context) async {
   final addToNavigationBar = context.vars['addToNavigationBar'] as bool;
   final platforms = context.vars['platform'] as String;
 
-  if (platforms.first == 'app' && isPage && !addToNavigationBar) {
+  if (platforms == 'app' && isPage && !addToNavigationBar) {
     file.writeAsStringSync(newContent);
     log('Route and classes added successfully.');
   }
