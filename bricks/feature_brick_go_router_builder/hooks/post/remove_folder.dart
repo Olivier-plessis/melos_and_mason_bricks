@@ -10,7 +10,7 @@ Future<void> runRemoveFolderGenerated(HookContext context, String name) async {
   final removingFilesDone =
       context.logger.progress('Removing $name folder ...');
   final dir = Directory(
-      '${platforms.first}/$appName/lib/src/feature/$featureName/$name');
+      '${platforms}/$appName/lib/src/feature/$featureName/$name');
   if (dir.existsSync()) {
     await dir.delete(recursive: true);
     removingFilesDone.complete();
