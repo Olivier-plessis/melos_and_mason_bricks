@@ -5,7 +5,7 @@ import 'package:mason/mason.dart';
 Future<void> runRemoveFolderGenerated(HookContext context, String name) async {
   final appName = (context.vars['appName'] as String).snakeCase;
   final featureName = (context.vars['feature_name'] as String).snakeCase;
-  final platforms = context.vars['platform'] as List<dynamic>;
+  final platforms = context.vars['platform'] as String;
 
   final removingFilesDone =
       context.logger.progress('Removing $name folder ...');

@@ -28,7 +28,7 @@ Future<bool> _uses(String input, {required io.File file}) async {
 
 io.File _getPubspec(HookContext context) {
   final appName = (context.vars['appName'] as String).snakeCase;
-  final platforms = context.vars['platform'] as List<dynamic>;
+  final platforms = context.vars['platform'] as String;
 
   try {
     return io.File.fromUri(

@@ -139,7 +139,7 @@ Future<void> runGeneratedRoute(HookContext context) async {
   }
 
   final isPage = context.vars['page'] as bool;
-  final platforms = context.vars['platform'] as List<dynamic>;
+  final platforms = context.vars['platform'] as String;
 
   if (platforms.first == 'app' && isPage) {
     file.writeAsStringSync(newContent);

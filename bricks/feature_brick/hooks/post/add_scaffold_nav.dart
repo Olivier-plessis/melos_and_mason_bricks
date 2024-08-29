@@ -76,7 +76,7 @@ Future<void> runGeneratedNavigationRoute(HookContext context) async {
   // Save changes if conditions are met
   final isPage = context.vars['page'] as bool;
   final addToNavigationBar = context.vars['addToNavigationBar'] as bool;
-  final platforms = context.vars['platform'] as List<dynamic>;
+  final platforms = context.vars['platform'] as String;
 
   if (platforms.first == 'app' && isPage && addToNavigationBar) {
     file.writeAsStringSync(newContent);
