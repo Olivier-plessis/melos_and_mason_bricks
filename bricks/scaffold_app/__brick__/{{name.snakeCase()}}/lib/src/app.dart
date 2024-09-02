@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:{{name.snakeCase()}}/src/core/theme/dark_theme.dart';
-import 'package:{{name.snakeCase()}}/src/core/theme/light_theme.dart';
+import 'package:{{name.snakeCase()}}/src/core/theme/app_theme_data.dart';
 import 'package:{{name.snakeCase()}}/src/core/theme/theme_mode_controller.dart';
 import 'package:{{name.snakeCase()}}/src/router/app_router.dart';
 
@@ -13,8 +12,6 @@ class MainApp extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final ThemeMode themeMode = ref.watch(themeModeControllerProvider);
 
-    final theme = themeMode == ThemeMode.light ? lightTheme : darkTheme;
-
     final goRouter = ref.watch(goRouterProvider);
     return ScreenUtilInit(
       designSize: ScreenUtil.defaultSize,
@@ -24,10 +21,10 @@ class MainApp extends ConsumerWidget {
         routerConfig: goRouter,
         debugShowCheckedModeBanner: false,
         restorationScopeId: 'app',
-        theme: theme,
-        darkTheme: theme,
+        theme: AppThemeData.light(),
+        darkTheme: AppThemeData.dark(),
         themeMode: themeMode,
-        onGenerateTitle: (BuildContext context) => 'mason starter',
+        onGenerateTitle: (BuildContext context) => '${name.sentenceCase()}',
         builder: (
           BuildContext context,
           Widget? child,

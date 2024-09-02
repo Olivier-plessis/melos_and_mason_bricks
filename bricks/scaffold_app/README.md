@@ -81,8 +81,9 @@ Follow the instructions in the prompt and **VOILA**, your app is now installed i
 │   │   │   ├── custom_appbar_widget.dart // just an exemple
 │   │   ├── core
 │   │   │   ├── theme
-│   │       │   ├── dark_theme.dart
-│   │       │   ├── light_theme.dart
+│   │       │   ├── app_theme_data.dart // extending ThemeData
+│   │       │   ├── dark_theme.dart // using flex_color_scheme
+│   │       │   ├── light_theme.dart // using flex_color_scheme
 │   │       │   ├── theme_mode_controller.dart
 │   │   │   ├── utils
 │   │       │   ├── dio_provider.dart
@@ -117,4 +118,5 @@ analyzer:
   plugins:
     - custom_lint
 ```
+
 

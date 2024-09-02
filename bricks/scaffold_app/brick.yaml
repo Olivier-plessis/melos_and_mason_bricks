@@ -1,7 +1,7 @@
 name: scaffold_app
 description: A Riverpod clean architecture feature builder based on solid principles for Flutter projects.
 
-version: 0.1.0+1
+version: 0.2.0
 
 # The following defines the environment for the current brick.
 # It includes the version of mason that the brick requires.
