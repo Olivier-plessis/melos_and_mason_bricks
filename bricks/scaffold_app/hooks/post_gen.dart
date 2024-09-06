@@ -7,6 +7,7 @@ import 'post/app_build_runner.dart';
 import 'post/creator_base_project.dart';
 import 'post/dart_formater.dart';
 import 'post/get_dependencies.dart';
+import 'post/melos_script.dart';
 import 'post/move_generated_app.dart';
 import 'post/update_analysis_option.dart';
 
@@ -52,6 +53,12 @@ Future<void> run(HookContext context) async {
       context: context,
       cb: (context) async => await updateAnalysisOptions(context),
       message: 'Update analysis_options.yaml in progress ..');
+  await Future<void>.delayed(_duration);
+
+  await executeAndLog(
+      context: context,
+      cb: addBuilderScript,
+      message: 'Adding builder script in melos file..');
   await Future<void>.delayed(_duration);
 }
 
