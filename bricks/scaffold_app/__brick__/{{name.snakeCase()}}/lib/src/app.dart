@@ -24,7 +24,7 @@ class MainApp extends ConsumerWidget {
         theme: AppThemeData.light(),
         darkTheme: AppThemeData.dark(),
         themeMode: themeMode,
-        onGenerateTitle: (BuildContext context) => '${name.sentenceCase()}',
+        onGenerateTitle: (BuildContext context) => '{{name.sentenceCase()}}',
         builder: (
           BuildContext context,
           Widget? child,
