@@ -16,10 +16,17 @@ Future<void> addBuilderScript(HookContext context) async {
     description: Build all generated files for Dart & Flutter packages in this project.
 ''';
 
-  final newContent = melosContent.replaceFirst(
-    'all:',
-    '$newScript\n  all:',
-  );
+  var newContent = melosContent;
+
+  newContent = melosContent
+      .replaceFirst(
+        'all:',
+        '$newScript\n  all:',
+      )
+      .replaceFirst(
+        'all:\n    run: |\n      melos clean\n      melos bs\n',
+        'all:\n    run: |\n      melos clean\n      melos bs\n      melos build_runner\n',
+      );
 
   melosFile.writeAsStringSync(newContent);
 
