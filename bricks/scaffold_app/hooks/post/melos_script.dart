@@ -18,17 +18,21 @@ Future<void> addBuilderScript(HookContext context) async {
 
   var newContent = melosContent;
 
-  newContent = melosContent
-      .replaceFirst(
-        'all:',
-        '$newScript\n  all:',
-      )
-      .replaceFirst(
-        'all:\n    run: |\n      melos clean\n      melos bs\n',
-        'all:\n    run: |\n      melos clean\n      melos bs\n      melos build_runner\n',
-      );
+  if (!newContent.contains('spider:')) {
+    newContent = melosContent
+        .replaceFirst(
+          'all:',
+          '$newScript\n  all:',
+        )
+        .replaceFirst(
+          'all:\n    run: |\n      melos clean\n      melos bs\n',
+          'all:\n    run: |\n      melos clean\n      melos bs\n      melos build_runner\n',
+        );
 
-  melosFile.writeAsStringSync(newContent);
+    melosFile.writeAsStringSync(newContent);
 
-  context.logger.info('Dart format in progress..');
+    context.logger.info('Dart format in progress..');
+  }else{
+    context.logger.info('build_runner script already exists');
+  }
 }
