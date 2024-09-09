@@ -11,28 +11,33 @@ Future<void> addBuilderScript(HookContext context) async {
   }
 
   final melosContent = melosFile.readAsStringSync();
-  const newScript = '''build_runner:
+  const buildScript = '''build_runner:
     run: melos exec --depends-on="build_runner" -- "dart run build_runner build -d"
     description: Build all generated files for Dart & Flutter packages in this project.
 ''';
 
+  const watchScript = '''watch_runner:
+    run: melos exec --depends-on="build_runner" -- "dart run build_runner watch -d"
+    description: Watch all generated files for Dart & Flutter packages in this project.
+''';
   var newContent = melosContent;
 
-  if (!newContent.contains('spider:')) {
+  if (!newContent.contains('watch_runner:') &&
+      !newContent.contains('build_runner:')) {
     newContent = melosContent
         .replaceFirst(
           'all:',
-          '$newScript\n  all:',
+          '$watchScript\n  $buildScript\n  all:',
         )
         .replaceFirst(
           'all:\n    run: |\n      melos clean\n      melos bs\n',
-          'all:\n    run: |\n      melos clean\n      melos bs\n      melos build_runner\n',
+          'all:\n    run: |\n      melos clean\n      melos bs\n      melos watch_runner\n      melos build_runner\n',
         );
 
     melosFile.writeAsStringSync(newContent);
 
     context.logger.info('Dart format in progress..');
-  }else{
+  } else {
     context.logger.info('build_runner script already exists');
   }
 }
