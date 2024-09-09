@@ -1,7 +1,5 @@
-import 'package:{{name}}/src/constants/app_color.dart';
-import 'package:{{name}}/src/typography/typography.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+part of 'typography.dart';
+
 
 class StyleTheme {
   StyleTheme._();

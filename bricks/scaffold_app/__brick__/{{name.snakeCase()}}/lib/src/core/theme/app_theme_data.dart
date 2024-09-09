@@ -10,8 +10,6 @@ extension AppThemeData on ThemeData {
 
   ThemeData _customAppTheme() {
     // An updated theme with your own
-    return copyWith(
-      
-    );
+    return copyWith();
   }
 }

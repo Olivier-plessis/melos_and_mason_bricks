@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+part of 'extensions.dart';
 
 class RowWithSpacing extends Row {
   RowWithSpacing({
@@ -13,16 +13,16 @@ class RowWithSpacing extends Row {
     super.textBaseline,
     List<Widget> children = const <Widget>[],
   }) : super(
-    children: [
-      ...hasLeadingSpace
-          ? <Widget>[SizedBox(width: spacing)]
-          : <Widget>[],
-      ...children.expand(
-            (Widget w) => <Widget>[
-          w,
-          SizedBox(width: spacing),
-        ],
-      )
-    ],
-  );
+          children: [
+            ...hasLeadingSpace
+                ? <Widget>[SizedBox(width: spacing)]
+                : <Widget>[],
+            ...children.expand(
+              (Widget w) => <Widget>[
+                w,
+                SizedBox(width: spacing),
+              ],
+            )
+          ],
+        );
 }

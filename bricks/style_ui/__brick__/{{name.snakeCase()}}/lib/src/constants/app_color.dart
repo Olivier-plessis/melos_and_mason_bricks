@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+part of 'constants.dart';
 
 class Palette {
   Palette._();

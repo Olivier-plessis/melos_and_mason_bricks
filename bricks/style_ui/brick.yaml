@@ -34,7 +34,7 @@ vars:
   appName:
     type: string
     description: Project app name
-    default: main_app
+    default: flutter_app
     prompt: What is this project's name?
   movingTheme:
     type: boolean

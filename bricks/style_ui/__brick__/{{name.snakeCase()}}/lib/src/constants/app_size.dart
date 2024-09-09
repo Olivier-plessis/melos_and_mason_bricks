@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+part of 'constants.dart';
 
 /// Constant sizes to be used in the app (paddings, gaps, etc.)
 class Sizes {

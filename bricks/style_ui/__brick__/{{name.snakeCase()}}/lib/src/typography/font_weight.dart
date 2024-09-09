@@ -1,4 +1,4 @@
-import 'package:flutter/widgets.dart';
+part of 'typography.dart';
 
 class FontFamilyTheme {
   FontFamilyTheme._();

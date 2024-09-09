@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+part of 'extensions.dart';
 
 extension PaddingExt on Widget {
   Widget paddedH(double value) {
@@ -71,9 +71,11 @@ extension PaddingExt on Widget {
     );
   }
 
-  Widget paddedLRTB({double left = 0, double right = 0, double top = 0, double bottom = 0}) {
+  Widget paddedLRTB(
+      {double left = 0, double right = 0, double top = 0, double bottom = 0}) {
     return Padding(
-      padding: EdgeInsets.only(left: left, right: right, top: top, bottom: bottom),
+      padding:
+          EdgeInsets.only(left: left, right: right, top: top, bottom: bottom),
       child: this,
     );
   }

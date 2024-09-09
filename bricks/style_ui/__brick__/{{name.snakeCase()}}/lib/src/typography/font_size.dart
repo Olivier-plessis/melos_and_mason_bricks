@@ -1,3 +1,5 @@
+part of 'typography.dart';
+
 class FontSizeTheme {
   FontSizeTheme._();
 

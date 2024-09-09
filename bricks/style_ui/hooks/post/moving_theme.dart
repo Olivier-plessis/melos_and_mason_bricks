@@ -39,9 +39,8 @@ Future<void> movingTheme(HookContext context) async {
     appThemeDataContent = appThemeDataContent.replaceAll(
         "import 'package:$appName/src/core/theme/dark_theme.dart';\nimport 'package:$appName/src/core/theme/light_theme.dart';",
         '''
-import 'package:$name/src/theme/dark_theme.dart';
-import 'package:$name/src/theme/light_theme.dart';
-''');
+        import 'package:$name/$name.dart';
+    ''');
 
     await File(appThemeDataFilePath).writeAsString(appThemeDataContent);
     context.logger.info('$name theme imported into $name package.');
@@ -50,27 +49,18 @@ import 'package:$name/src/theme/light_theme.dart';
     final appThemeDataFile =
         File('packages/$name/lib/src/theme/app_theme_data.dart');
     var content = await appThemeDataFile.readAsString();
-    if (!content.contains('textTheme: TextTheme')) {
-      final importLine =
-          "import 'package:$name/src/typography/typography.dart';";
 
-      content = content
-          .replaceFirst("import 'package:$name/src/theme/light_theme.dart';\n",
-              "import 'package:$name/src/theme/light_theme.dart';\n$importLine\n")
-          .replaceFirst(
+    if (!content.contains('elevatedButtonTheme: ElevatedButtonThemeData')) {
+      content = content.replaceFirst(
         'return copyWith();',
         '''
   return copyWith(
-    textTheme: TextTheme(
-      headlineLarge: StyleTheme.headlineLarge,
-      headlineMedium: StyleTheme.headlineMedium,
-      headlineSmall: StyleTheme.headlineSmall,
-      titleLarge: StyleTheme.titleLarge,
-      titleMedium: StyleTheme.titleMedium,
-      titleSmall: StyleTheme.titleSmall,
-      bodyLarge: StyleTheme.bodyLarge,
-      bodyMedium: StyleTheme.bodyMedium,
-      bodySmall: StyleTheme.bodySmall,
+    // Just an example of how you can add your own theme
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        padding: const EdgeInsets.all(Sizes.p16),
+        textStyle: StyleTheme.bodyLarge,
+      ),
     ),
   );
 ''',

@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+part of 'extensions.dart';
 
 class SvgPictureCustom extends StatelessWidget {
   final String path;
