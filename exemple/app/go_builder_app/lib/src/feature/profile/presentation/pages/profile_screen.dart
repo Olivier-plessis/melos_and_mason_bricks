@@ -2,16 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:go_builder_app/src/router/app_routes.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class ProfileScreen extends StatefulHookConsumerWidget {
+class ProfileScreen extends HookConsumerWidget {
   const ProfileScreen({super.key});
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() => _ProfileScreenState();
-}
-
-class _ProfileScreenState extends ConsumerState<ProfileScreen> {
-  @override
-  Widget build(BuildContext context) {
- return Scaffold(
+  Widget build(BuildContext context, WidgetRef ref) {
+    return Scaffold(
       appBar: AppBar(
         title: const Text('Hello Profile'),
       ),
@@ -21,8 +16,8 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
         children: [
           Text('Profile screen'),
           ElevatedButton(
-              onPressed: () => EditProfileRoute().push(context),  
-              child: Text('edit profile'))
+              onPressed: () => SettingsRoute().push(context),
+              child: Text('edit settings'))
         ],
       )),
     );

@@ -1,0 +1,4 @@
+# melos_managed_dependency_overrides: go_builder_ui
+dependency_overrides:
+  go_builder_ui:
+    path: ../../packages/go_builder_ui

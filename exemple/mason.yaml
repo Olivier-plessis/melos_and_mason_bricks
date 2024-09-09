@@ -14,3 +14,8 @@ bricks:
       url: "https://github.com/Olivier-plessis/melos_and_mason_bricks.git"
       path: bricks/feature_brick_go_router_builder
       ref: feature/bricks
+  style_ui:
+    git:
+      url: "https://github.com/Olivier-plessis/melos_and_mason_bricks.git"
+      path: bricks/style_ui
+      ref: feature/bricks

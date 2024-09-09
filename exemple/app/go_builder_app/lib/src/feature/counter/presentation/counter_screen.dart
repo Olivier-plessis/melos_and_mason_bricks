@@ -11,7 +11,6 @@ class CounterScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
     final count = ref.watch(counterNotifierProvider);
-    final themeMode = ref.watch(themeModeControllerProvider);
     return Scaffold(
       appBar: CustomBarWidget(
         title: 'home page',

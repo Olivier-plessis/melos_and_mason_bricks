@@ -8,7 +8,7 @@ part of 'app_routes.dart';
 
 List<RouteBase> get $appRoutes => [
       $splashRoute,
-      $editProfileRoute,
+      $settingsRoute,
       $mainShellRouteData,
     ];
 
@@ -34,17 +34,16 @@ extension $SplashRouteExtension on SplashRoute {
   void replace(BuildContext context) => context.replace(location);
 }
 
-RouteBase get $editProfileRoute => GoRouteData.$route(
-      path: '/edit-profile',
-      factory: $EditProfileRouteExtension._fromState,
+RouteBase get $settingsRoute => GoRouteData.$route(
+      path: '/settings',
+      factory: $SettingsRouteExtension._fromState,
     );
 
-extension $EditProfileRouteExtension on EditProfileRoute {
-  static EditProfileRoute _fromState(GoRouterState state) =>
-      const EditProfileRoute();
+extension $SettingsRouteExtension on SettingsRoute {
+  static SettingsRoute _fromState(GoRouterState state) => const SettingsRoute();
 
   String get location => GoRouteData.$location(
-        '/edit-profile',
+        '/settings',
       );
 
   void go(BuildContext context) => context.go(location);

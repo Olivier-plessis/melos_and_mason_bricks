@@ -5,7 +5,7 @@
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "An awesome flutter app generate by mason",
+    "description": "this is a simple app with go router",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

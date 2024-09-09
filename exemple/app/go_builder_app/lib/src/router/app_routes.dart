@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:go_builder_app/src/feature/edit_profile/presentation/pages/edit_profile_screen.dart';
+import 'package:go_builder_app/src/feature/settings/presentation/pages/settings_screen.dart';
 import 'package:go_builder_app/src/router/scaffold_with_nested_navigation.dart';
 import 'package:go_builder_app/src/splash_screen.dart';
 
@@ -20,13 +20,13 @@ class SplashRoute extends GoRouteData {
   }
 }
 
-@TypedGoRoute<EditProfileRoute>(path: "/edit-profile")
-class EditProfileRoute extends GoRouteData {
-  const EditProfileRoute();
+@TypedGoRoute<SettingsRoute>(path: "/settings")
+class SettingsRoute extends GoRouteData {
+  const SettingsRoute();
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return const EditProfileScreen();
+    return const SettingsScreen();
   }
 }
 

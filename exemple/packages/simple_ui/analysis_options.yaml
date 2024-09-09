@@ -1,0 +1,7 @@
+import: ../../analysis_options.yaml
+analyzer:
+  plugins:
+    - custom_lint
+
+# Additional information about this file can be found at
+# https://dart.dev/guides/language/analysis-options

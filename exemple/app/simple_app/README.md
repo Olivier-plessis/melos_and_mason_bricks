@@ -1,3 +1,3 @@
 # simple_app
 
-An awesome flutter app generate by mason
+this is a simple app with go router

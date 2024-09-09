@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:simple_app/src/router/app_router.dart';
-import 'package:simple_app/src/router/app_routes.dart';
 import 'package:simple_app/src/router/route_constants.dart';
 
 class ProfileScreen extends StatefulHookConsumerWidget {
@@ -24,8 +22,8 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
         children: [
           Text('Profile screen'),
           ElevatedButton(
-              onPressed: () => context.pushNamed(AppPage.editProfile.routeName),
-              child: Text('edit profile'))
+              onPressed: () => context.pushNamed(AppPage.settings.routeName),
+              child: Text('edit settings'))
         ],
       )),
     );

@@ -3,7 +3,7 @@ enum AppPage {
   splash,
   empty,
   profile,
-  editProfile,
+  settings,
 }
 
 extension AppPageExtension on AppPage {
@@ -13,7 +13,7 @@ extension AppPageExtension on AppPage {
       AppPage.splash => '/splash',
       AppPage.empty => '/empty',
       AppPage.profile => '/profile',
-      AppPage.editProfile => '/edit-profile',
+      AppPage.settings => '/settings',
     };
   }
 
@@ -23,7 +23,7 @@ extension AppPageExtension on AppPage {
       AppPage.splash => 'SPLASH',
       AppPage.empty => 'EMPTY',
       AppPage.profile => 'PROFILE',
-      AppPage.editProfile => 'EDIT_PROFILE',
+      AppPage.settings => 'SETTINGS',
     };
   }
 }

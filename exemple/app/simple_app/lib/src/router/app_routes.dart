@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:simple_app/src/feature/edit_profile/presentation/pages/edit_profile_screen.dart';
+import 'package:simple_app/src/feature/settings/presentation/pages/settings_screen.dart';
 import 'package:simple_app/src/feature/profile/presentation/pages/profile_screen.dart';
 import 'package:simple_app/src/router/scaffold_with_nested_navigation.dart';
 import 'package:simple_app/src/splash_screen.dart';
@@ -20,9 +20,9 @@ List<RouteBase> appRoutes = [
     builder: (context, state) => const SplashScreen(),
   ),
   GoRoute(
-    path: AppPage.editProfile.routePath,
-    name: AppPage.editProfile.routeName,
-    builder: (context, state) => const EditProfileScreen(),
+    path: AppPage.settings.routePath,
+    name: AppPage.settings.routeName,
+    builder: (context, state) => const SettingsScreen(),
   ),
   StatefulShellRoute.indexedStack(
       pageBuilder: (

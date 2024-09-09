@@ -1,0 +1,4 @@
+# melos_managed_dependency_overrides: simple_ui
+dependency_overrides:
+  simple_ui:
+    path: ../../packages/simple_ui

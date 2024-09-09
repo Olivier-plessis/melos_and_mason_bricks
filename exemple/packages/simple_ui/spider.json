@@ -1,0 +1,16 @@
+{
+  "generate_tests": true,
+  "no_comments": true,
+  "export": true,
+  "use_part_of": true,
+  "use_references_list": false,
+  "package": "resources",
+  "groups": [
+    {
+      "path": "assets/images/branding",
+      "prefix": "bdg_",
+      "class_name": "BrandingAssets",
+      "types": ["png", "webp", "wbmp", "svg"]
+    }
+  ]
+}
