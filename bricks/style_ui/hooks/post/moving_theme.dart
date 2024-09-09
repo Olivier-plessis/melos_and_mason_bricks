@@ -39,8 +39,8 @@ Future<void> movingTheme(HookContext context) async {
     appThemeDataContent = appThemeDataContent.replaceAll(
         "import 'package:$appName/src/core/theme/dark_theme.dart';\nimport 'package:$appName/src/core/theme/light_theme.dart';",
         '''
-        import 'package:$name/$name.dart';
-    ''');
+import 'package:$name/$name.dart';
+''');
 
     await File(appThemeDataFilePath).writeAsString(appThemeDataContent);
     context.logger.info('$name theme imported into $name package.');
