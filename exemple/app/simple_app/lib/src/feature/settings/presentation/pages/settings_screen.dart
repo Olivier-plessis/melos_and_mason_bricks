@@ -2,12 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:simple_app/src/core/theme/theme_mode_controller.dart';
+import 'package:simple_app/src/feature/onboarding/presentation/pages/onboarding_screen.dart';
+import 'package:simple_app/src/feature/onboarding/presentation/provider/onboarding_provider.dart';
+import 'package:simple_app/src/router/route_constants.dart';
 import 'package:simple_ui/simple_ui.dart';
 
 class SettingsScreen extends HookConsumerWidget {
   const SettingsScreen({super.key});
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final state = ref.watch(onboardingProvider);
     return Scaffold(
       appBar: AppBar(
         title: const Text('Settings'),
@@ -21,6 +25,21 @@ class SettingsScreen extends HookConsumerWidget {
               onPressed: () => context.pop(), child: Text('back to profile')),
           gapH32,
           ThemeSelectorListTile(),
+          PrimaryButton(
+            text: 'Get Started Now !',
+            isLoading: state.isLoading,
+            onPressed: state.isLoading
+                ? null
+                : () async {
+                    await ref
+                        .read(onboardingProvider.notifier)
+                        .clearOnboarding();
+                    if (context.mounted) {
+                      // go to home page after completing onboarding
+                      context.goNamed(AppPage.home.routeName);
+                    }
+                  },
+          ),
         ],
       )),
     );

@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:simple_app/src/feature/settings/presentation/pages/settings_screen.dart';
-import 'package:simple_app/src/feature/profile/presentation/pages/profile_screen.dart';
-import 'package:simple_app/src/router/scaffold_with_nested_navigation.dart';
-import 'package:simple_app/src/splash_screen.dart';
-
-import 'package:simple_app/src/router/route_constants.dart';
 import 'package:simple_app/src/feature/counter/presentation/counter_screen.dart';
 import 'package:simple_app/src/feature/counter/presentation/empty_screen.dart';
+import 'package:simple_app/src/feature/onboarding/presentation/pages/onboarding_screen.dart';
+import 'package:simple_app/src/feature/profile/presentation/pages/profile_screen.dart';
+import 'package:simple_app/src/feature/settings/presentation/pages/settings_screen.dart';
+import 'package:simple_app/src/router/app_startup.dart';
+import 'package:simple_app/src/router/route_constants.dart';
+import 'package:simple_app/src/router/scaffold_with_nested_navigation.dart';
+import 'package:simple_app/src/splash_screen.dart';
 
 final _homeNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'home');
 final _profileNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'profile');
@@ -20,9 +21,25 @@ List<RouteBase> appRoutes = [
     builder: (context, state) => const SplashScreen(),
   ),
   GoRoute(
+    path: AppPage.startup.routePath,
+    name: AppPage.startup.routeName,
+    pageBuilder: (context, state) => NoTransitionPage(
+      child: AppStartupWidget(
+        // * This is just a placeholder
+        // * The loaded route will be managed by GoRouter on state change
+        onLoaded: (_) => const SizedBox.shrink(),
+      ),
+    ),
+  ),
+  GoRoute(
     path: AppPage.settings.routePath,
     name: AppPage.settings.routeName,
     builder: (context, state) => const SettingsScreen(),
+  ),
+  GoRoute(
+    path: AppPage.onboarding.routePath,
+    name: AppPage.onboarding.routeName,
+    builder: (context, state) => const OnboardingScreen(),
   ),
   StatefulShellRoute.indexedStack(
       pageBuilder: (
