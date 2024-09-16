@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:simple_app/src/common_widgets/button/primary_button.dart';
 import 'package:simple_app/src/feature/onboarding/presentation/provider/onboarding_provider.dart';
 import 'package:simple_app/src/router/route_constants.dart';
 import 'package:simple_ui/simple_ui.dart';
@@ -30,32 +31,9 @@ class OnboardingScreen extends HookConsumerWidget {
                       context.goNamed(AppPage.home.routeName);
                     }
                   },
-          ),
+          ).paddedAll(UiSpacing.lg),
         ],
       )),
-    );
-  }
-}
-
-class PrimaryButton extends StatelessWidget {
-  const PrimaryButton(
-      {super.key, required this.text, this.isLoading = false, this.onPressed});
-  final String text;
-  final bool isLoading;
-  final VoidCallback? onPressed;
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: Sizes.p48,
-      child: ElevatedButton(
-        onPressed: onPressed,
-        child: isLoading
-            ? const CircularProgressIndicator()
-            : Text(
-                text,
-                textAlign: TextAlign.center,
-              ),
-      ),
     );
   }
 }

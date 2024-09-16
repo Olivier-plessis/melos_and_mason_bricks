@@ -1,4 +1,4 @@
-name: exemple 
+name: exemple
 packages:
   - app/**
   - packages/**
@@ -31,7 +31,6 @@ scripts:
     run: |
       melos clean
       melos bs
-      melos watch_runner
       melos build_runner
 
 command:

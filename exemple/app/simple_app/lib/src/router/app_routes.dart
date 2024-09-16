@@ -21,8 +21,7 @@ List<RouteBase> appRoutes = [
     builder: (context, state) => const SplashScreen(),
   ),
   GoRoute(
-    path: AppPage.startup.routePath,
-    name: AppPage.startup.routeName,
+    path: '/startup',
     pageBuilder: (context, state) => NoTransitionPage(
       child: AppStartupWidget(
         // * This is just a placeholder
@@ -42,52 +41,53 @@ List<RouteBase> appRoutes = [
     builder: (context, state) => const OnboardingScreen(),
   ),
   StatefulShellRoute.indexedStack(
-      pageBuilder: (
-        BuildContext context,
-        GoRouterState state,
-        StatefulNavigationShell navigationShell,
-      ) =>
-          NoTransitionPage(
-            child: ScaffoldWithNestedNavigation(
-              navigationShell: navigationShell,
+    pageBuilder: (
+      BuildContext context,
+      GoRouterState state,
+      StatefulNavigationShell navigationShell,
+    ) =>
+        NoTransitionPage(
+      child: ScaffoldWithNestedNavigation(
+        navigationShell: navigationShell,
+      ),
+    ),
+    branches: [
+      StatefulShellBranch(
+        navigatorKey: _homeNavigatorKey,
+        routes: [
+          GoRoute(
+            path: AppPage.home.routePath,
+            name: AppPage.home.routeName,
+            pageBuilder: (context, state) => const NoTransitionPage(
+              child: CounterScreen(),
             ),
           ),
-      branches: [
-        StatefulShellBranch(
-          navigatorKey: _homeNavigatorKey,
-          routes: [
-            GoRoute(
-              path: AppPage.home.routePath,
-              name: AppPage.home.routeName,
-              pageBuilder: (context, state) => const NoTransitionPage(
-                child: CounterScreen(),
-              ),
+        ],
+      ),
+      StatefulShellBranch(
+        navigatorKey: _emptyNavigatorKey,
+        routes: [
+          GoRoute(
+            path: AppPage.empty.routePath,
+            name: AppPage.empty.routeName,
+            pageBuilder: (context, state) => const NoTransitionPage(
+              child: EmptyScreen(),
             ),
-          ],
-        ),
-        StatefulShellBranch(
-          navigatorKey: _emptyNavigatorKey,
-          routes: [
-            GoRoute(
-              path: AppPage.empty.routePath,
-              name: AppPage.empty.routeName,
-              pageBuilder: (context, state) => const NoTransitionPage(
-                child: EmptyScreen(),
-              ),
+          ),
+        ],
+      ),
+      StatefulShellBranch(
+        navigatorKey: _profileNavigatorKey,
+        routes: [
+          GoRoute(
+            path: AppPage.profile.routePath,
+            name: AppPage.profile.routeName,
+            pageBuilder: (context, state) => const NoTransitionPage(
+              child: ProfileScreen(),
             ),
-          ],
-        ),
-        StatefulShellBranch(
-          navigatorKey: _profileNavigatorKey,
-          routes: [
-            GoRoute(
-              path: AppPage.profile.routePath,
-              name: AppPage.profile.routeName,
-              pageBuilder: (context, state) => const NoTransitionPage(
-                child: ProfileScreen(),
-              ),
-            ),
-          ],
-        ),
-      ])
+          ),
+        ],
+      ),
+    ],
+  ),
 ];

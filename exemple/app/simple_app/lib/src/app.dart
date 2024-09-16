@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-
 import 'package:simple_app/src/core/theme/theme_mode_controller.dart';
 import 'package:simple_app/src/router/app_router.dart';
 import 'package:simple_ui/simple_ui.dart';
@@ -34,7 +32,7 @@ class MainApp extends ConsumerWidget {
           data: MediaQuery.of(context).copyWith(
             textScaler: TextScaler.linear(1),
           ),
-          child: child ?? SizedBox.shrink(),
+          child: child ?? const SizedBox.shrink(),
         ),
       ),
     );

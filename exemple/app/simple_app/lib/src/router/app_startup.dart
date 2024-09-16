@@ -20,10 +20,10 @@ Future<void> appStartup(AppStartupRef ref) async {
 class AppStartupWidget extends ConsumerWidget {
   const AppStartupWidget({super.key, required this.onLoaded});
   final WidgetBuilder onLoaded;
-
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final appStartupState = ref.watch(appStartupProvider);
+    print('appStartupState: $appStartupState');
     return appStartupState.when(
       data: (_) => onLoaded(context),
       loading: () => const AppStartupLoadingWidget(),

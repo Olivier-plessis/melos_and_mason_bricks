@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:simple_app/src/common_widgets/button/primary_button.dart';
 import 'package:simple_app/src/core/theme/theme_mode_controller.dart';
-import 'package:simple_app/src/feature/onboarding/presentation/pages/onboarding_screen.dart';
 import 'package:simple_app/src/feature/onboarding/presentation/provider/onboarding_provider.dart';
 import 'package:simple_app/src/router/route_constants.dart';
 import 'package:simple_ui/simple_ui.dart';
@@ -20,7 +20,7 @@ class SettingsScreen extends HookConsumerWidget {
           child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text('Edit Profile screen'),
+          Text('Edit Profile screen', style: TextStyle(fontSize: 24.0.sp)),
           ElevatedButton(
               onPressed: () => context.pop(), child: Text('back to profile')),
           gapH32,
@@ -39,7 +39,7 @@ class SettingsScreen extends HookConsumerWidget {
                       context.goNamed(AppPage.home.routeName);
                     }
                   },
-          ),
+          ).paddedAll(UiSpacing.lg),
         ],
       )),
     );

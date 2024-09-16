@@ -11,8 +11,8 @@ enum AppPage {
 extension AppPageExtension on AppPage {
   String get routePath {
     return switch (this) {
-      AppPage.home => '/',
       AppPage.startup => '/startup',
+      AppPage.home => '/home',
       AppPage.splash => '/splash',
       AppPage.empty => '/empty',
       AppPage.profile => '/profile',
@@ -23,8 +23,8 @@ extension AppPageExtension on AppPage {
 
   String get routeName {
     return switch (this) {
-      AppPage.home => 'HOME',
       AppPage.startup => 'STARTUP',
+      AppPage.home => 'HOME',
       AppPage.splash => 'SPLASH',
       AppPage.empty => 'EMPTY',
       AppPage.profile => 'PROFILE',

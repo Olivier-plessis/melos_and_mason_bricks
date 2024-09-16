@@ -9,27 +9,23 @@ import 'package:simple_app/src/router/route_constants.dart';
 
 part 'app_router.g.dart';
 
+final _routKey = GlobalKey<NavigatorState>(debugLabel: 'routeKey');
+
 @riverpod
 GoRouter goRouter(GoRouterRef ref) {
-  final routKey = GlobalKey<NavigatorState>(debugLabel: 'routeKey');
   final appStartupState = ref.watch(appStartupProvider);
-
   final router = GoRouter(
-    navigatorKey: routKey,
+    navigatorKey: _routKey,
     initialLocation: AppPage.splash.routePath,
     debugLogDiagnostics: true,
     routes: appRoutes,
     redirect: (context, state) {
       final bool isSplash = state.uri.path == AppPage.splash.routePath;
-      if (isSplash) {
-        final String location = AppPage.home.routePath;
-        return location;
-      }
-
       // If the app is still initializing, show the /startup route
-      if (appStartupState.isLoading || appStartupState.hasError) {
+      if (isSplash || appStartupState.isLoading || appStartupState.hasError) {
         return AppPage.startup.routePath;
       }
+
       final onboardingRepository =
           ref.read(onboardingRepositoryProvider).requireValue;
       final didCompleteOnboarding = onboardingRepository.isOnboardingComplete();
@@ -43,6 +39,11 @@ GoRouter goRouter(GoRouterRef ref) {
         }
         return null;
       }
+
+      if (path.startsWith('/startup') || path.startsWith('/onboarding')) {
+        return AppPage.home.routePath;
+      }
+
       return null;
     },
     errorBuilder: (context, state) => const NotFoundScreen(),
