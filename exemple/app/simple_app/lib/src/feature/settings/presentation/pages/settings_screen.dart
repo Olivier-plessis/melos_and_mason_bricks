@@ -16,32 +16,32 @@ class SettingsScreen extends HookConsumerWidget {
       appBar: AppBar(
         title: const Text('Settings'),
       ),
-      body: Center(
-          child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text('Edit Profile screen', style: TextStyle(fontSize: 24.0.sp)),
-          ElevatedButton(
-              onPressed: () => context.pop(), child: Text('back to profile')),
-          gapH32,
-          ThemeSelectorListTile(),
-          PrimaryButton(
-            text: 'Get Started Now !',
-            isLoading: state.isLoading,
-            onPressed: state.isLoading
-                ? null
-                : () async {
-                    await ref
-                        .read(onboardingProvider.notifier)
-                        .clearOnboarding();
-                    if (context.mounted) {
-                      // go to home page after completing onboarding
-                      context.goNamed(AppPage.home.routeName);
-                    }
-                  },
-          ).paddedAll(UiSpacing.lg),
-        ],
-      )),
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            // ElevatedButton(
+            //     onPressed: () => context.pop(), child: Text('back to profile')),
+            gapH32,
+            ThemeSelectorListTile(),
+            PrimaryButton(
+              text: 'Return to onboarding',
+              isLoading: state.isLoading,
+              onPressed: state.isLoading
+                  ? null
+                  : () async {
+                      await ref
+                          .read(onboardingProvider.notifier)
+                          .clearOnboarding();
+                      if (context.mounted) {
+                        // go to home page after completing onboarding
+                        context.goNamed(AppPage.home.routeName);
+                      }
+                    },
+            ).paddedAll(UiSpacing.lg),
+          ],
+        ),
+      ),
     );
   }
 }

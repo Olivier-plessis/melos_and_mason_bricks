@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 // ignore:depend_on_referenced_packages
@@ -14,9 +15,18 @@ Future<void> main() async {
   registerErrorHandlers();
   runZonedGuarded(() async {
     WidgetsFlutterBinding.ensureInitialized();
-    runApp(ProviderScope(observers: <ProviderObserver>[
-      Observers(),
-    ], child: const MainApp()));
+    runApp(ProviderScope(
+      observers: <ProviderObserver>[
+        Observers(),
+      ],
+      child: DevicePreview(
+        enabled: !kReleaseMode,
+        tools: [
+          ...DevicePreview.defaultTools,
+        ],
+        builder: (context) => MainApp(), // Wrap your app
+      ),
+    ));
   }, (error, stackTrace) async {
     debugPrint('$error');
     debugPrint('$stackTrace');

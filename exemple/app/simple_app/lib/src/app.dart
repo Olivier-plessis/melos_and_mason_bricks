@@ -1,3 +1,4 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:simple_app/src/core/theme/theme_mode_controller.dart';
@@ -16,23 +17,28 @@ class MainApp extends ConsumerWidget {
       designSize: ScreenUtil.defaultSize,
       splitScreenMode: true,
       minTextAdapt: true,
-      builder: (context, child) => MaterialApp.router(
-        routerConfig: goRouter,
-        debugShowCheckedModeBanner: false,
-        restorationScopeId: 'app',
-        theme: AppThemeData.light(),
-        darkTheme: AppThemeData.dark(),
-        themeMode: themeMode,
-        onGenerateTitle: (BuildContext context) => 'Simple app',
-        builder: (
-          BuildContext context,
-          Widget? child,
-        ) =>
-            MediaQuery(
-          data: MediaQuery.of(context).copyWith(
-            textScaler: TextScaler.linear(1),
-          ),
-          child: child ?? const SizedBox.shrink(),
+      builder: (context, child) => DevicePreview.appBuilder(
+        context,
+        MaterialApp.router(
+          locale: DevicePreview.locale(context),
+          routerConfig: goRouter,
+          debugShowCheckedModeBanner: false,
+          restorationScopeId: 'app',
+          theme: AppThemeData.light(),
+          darkTheme: AppThemeData.dark(),
+          themeMode: themeMode,
+          onGenerateTitle: (BuildContext context) => 'Simple app',
+          builder: (
+            BuildContext context,
+            Widget? child,
+          ) {
+            return MediaQuery(
+              data: MediaQuery.of(context).copyWith(
+                textScaler: TextScaler.linear(0.8),
+              ),
+              child: child ?? const SizedBox.shrink(),
+            );
+          },
         ),
       ),
     );

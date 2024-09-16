@@ -12,7 +12,7 @@ class FontSizeTheme {
   static num get titleLarge => 22.0;
   static num get titleMedium => 18.0;
   static num get titleSmall => 16.0;
-  static num get bodyLarge => 20.0;
-  static num get bodyMedium => 18.0;
-  static num get bodySmall => 14.0;
+  static num get bodyLarge => 14.0;
+  static num get bodyMedium => 12.0;
+  static num get bodySmall => 10.0;
 }

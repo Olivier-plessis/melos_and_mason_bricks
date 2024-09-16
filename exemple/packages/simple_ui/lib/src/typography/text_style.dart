@@ -1,13 +1,11 @@
 part of 'typography.dart';
 
-
 class StyleTheme {
   StyleTheme._();
 
   static const TextStyle _baseMainTextStyle = TextStyle(
     package: 'simple_ui',
     fontFamily: FontFamilyTheme.mainFont,
-    color: Palette.primaryColor,
     fontWeight: FontWeightTheme.regular,
   );
 
