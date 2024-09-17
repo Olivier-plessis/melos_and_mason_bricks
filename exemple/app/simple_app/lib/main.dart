@@ -8,6 +8,7 @@ import 'package:flutter_web_plugins/url_strategy.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:simple_app/src/app.dart';
 import 'package:simple_app/src/core/utils/observers.dart';
+import 'package:simple_app/src/core/utils/shared_preference_provider.dart';
 
 Future<void> main() async {
   // turn off the # in the URLs on the web and remove if only mobil app development
@@ -15,12 +16,16 @@ Future<void> main() async {
   registerErrorHandlers();
   runZonedGuarded(() async {
     WidgetsFlutterBinding.ensureInitialized();
-    runApp(ProviderScope(
+    final container = ProviderContainer(
       observers: <ProviderObserver>[
         Observers(),
       ],
+    );
+    await container.read(sharedPreferencesProvider.future);
+    runApp(UncontrolledProviderScope(
+      container: container,
       child: DevicePreview(
-        enabled: !kReleaseMode,
+        enabled: !kReleaseMode && !kIsWeb,
         tools: [
           ...DevicePreview.defaultTools,
         ],

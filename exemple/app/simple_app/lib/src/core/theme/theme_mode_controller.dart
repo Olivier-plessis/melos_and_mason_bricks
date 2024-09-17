@@ -1,13 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:simple_app/src/core/utils/shared_preference_provider.dart';
 
 part 'theme_mode_controller.g.dart';
 
 @riverpod
 class ThemeModeController extends _$ThemeModeController {
+  static const String key = 'themeMode';
+
+  SharedPreferences get _sharedPreferences =>
+      ref.watch(sharedPreferencesProvider).requireValue;
+
   @override
   ThemeMode build() {
-    return switch (this) {
+    final themeModeStr = _sharedPreferences.getString(key);
+    return switch (themeModeStr) {
       'light' => ThemeMode.light,
       'dark' => ThemeMode.dark,
       _ => ThemeMode.dark,
@@ -15,10 +23,12 @@ class ThemeModeController extends _$ThemeModeController {
   }
 
   void setThemeMode(ThemeMode mode) {
-    state = mode;
+    _sharedPreferences.setString(key, mode.name);
+    ref.invalidateSelf();
   }
 
   void toggleThemeMode() {
-    state = state == ThemeMode.light ? ThemeMode.dark : ThemeMode.light;
+    final newMode = state == ThemeMode.light ? ThemeMode.dark : ThemeMode.light;
+    setThemeMode(newMode);
   }
 }
