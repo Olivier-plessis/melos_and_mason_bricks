@@ -21,7 +21,8 @@ List<RouteBase> appRoutes = [
     builder: (context, state) => const SplashScreen(),
   ),
   GoRoute(
-    path: '/startup',
+    path: AppPage.startup.routePath,
+    name: AppPage.startup.routeName,
     pageBuilder: (context, state) => NoTransitionPage(
       child: AppStartupWidget(
         // * This is just a placeholder

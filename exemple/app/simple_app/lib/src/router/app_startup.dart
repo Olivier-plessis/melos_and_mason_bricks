@@ -23,7 +23,6 @@ class AppStartupWidget extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final appStartupState = ref.watch(appStartupProvider);
-    print('appStartupState: $appStartupState');
     return appStartupState.when(
       data: (_) => onLoaded(context),
       loading: () => const AppStartupLoadingWidget(),
