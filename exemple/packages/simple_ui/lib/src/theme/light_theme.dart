@@ -1,20 +1,23 @@
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
+import 'package:simple_ui/simple_ui.dart';
 
 // TODO customize this as you wish
 // Consider using and reading these docs: https://pub.dev/packages/flex_color_scheme
 // https://rydmike.com/flexcolorscheme/themesplayground-latest/
 final lightTheme = FlexThemeData.light(
-  scheme: FlexScheme.verdunHemlock,
+  scheme: FlexScheme.purpleBrown,
   subThemesData: const FlexSubThemesData(
     interactionEffects: false,
     tintedDisabledControls: false,
     blendOnColors: false,
     useTextTheme: true,
-    filledButtonSchemeColor: SchemeColor.onTertiaryContainer,
+    toggleButtonsSchemeColor: SchemeColor.primaryContainer,
+    toggleButtonsUnselectedSchemeColor: SchemeColor.tertiary,
     inputDecoratorBorderType: FlexInputBorderType.underline,
     inputDecoratorUnfocusedBorderIsColored: false,
-    fabSchemeColor: SchemeColor.errorContainer,
+    fabUseShape: true,
+    fabRadius: 11.0,
     alignedDropdown: true,
     tooltipRadius: 4,
     tooltipSchemeColor: SchemeColor.inverseSurface,
@@ -22,7 +25,7 @@ final lightTheme = FlexThemeData.light(
     useInputDecoratorThemeInDialogs: true,
     snackBarElevation: 6,
     snackBarBackgroundSchemeColor: SchemeColor.inverseSurface,
-    appBarBackgroundSchemeColor: SchemeColor.errorContainer,
+    appBarBackgroundSchemeColor: SchemeColor.secondaryContainer,
     navigationBarSelectedLabelSchemeColor: SchemeColor.onSurface,
     navigationBarUnselectedLabelSchemeColor: SchemeColor.onSurface,
     navigationBarMutedUnselectedLabel: false,

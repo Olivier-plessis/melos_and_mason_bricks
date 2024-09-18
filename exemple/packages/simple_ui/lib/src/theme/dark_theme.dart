@@ -5,13 +5,17 @@ import 'package:flutter/material.dart';
 // Consider using and reading these docs: https://pub.dev/packages/flex_color_scheme
 // https://rydmike.com/flexcolorscheme/themesplayground-latest/
 final darkTheme = FlexThemeData.dark(
-  scheme: FlexScheme.verdunHemlock,
+  scheme: FlexScheme.purpleBrown,
   subThemesData: const FlexSubThemesData(
     interactionEffects: false,
     tintedDisabledControls: false,
     useTextTheme: true,
+    toggleButtonsSchemeColor: SchemeColor.primaryContainer,
+    toggleButtonsUnselectedSchemeColor: SchemeColor.tertiary,
     inputDecoratorBorderType: FlexInputBorderType.underline,
     inputDecoratorUnfocusedBorderIsColored: false,
+    fabUseShape: true,
+    fabRadius: 11.0,
     alignedDropdown: true,
     tooltipRadius: 4,
     tooltipSchemeColor: SchemeColor.inverseSurface,
@@ -19,7 +23,7 @@ final darkTheme = FlexThemeData.dark(
     useInputDecoratorThemeInDialogs: true,
     snackBarElevation: 6,
     snackBarBackgroundSchemeColor: SchemeColor.inverseSurface,
-    appBarBackgroundSchemeColor: SchemeColor.primary,
+    appBarBackgroundSchemeColor: SchemeColor.inversePrimary,
     navigationBarSelectedLabelSchemeColor: SchemeColor.onSurface,
     navigationBarUnselectedLabelSchemeColor: SchemeColor.onSurface,
     navigationBarMutedUnselectedLabel: false,

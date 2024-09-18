@@ -33,9 +33,16 @@ class CounterScreen extends ConsumerWidget {
           const SizedBox(height: 8),
           FloatingActionButton(
             heroTag: 'remove',
-            onPressed: () => ref
-                .read(counterNotifierProvider.notifier)
-                .update((state) => state -= 1),
+            backgroundColor: count == 0
+                ? Colors.grey[300]
+                : Theme.of(context).colorScheme.inversePrimary,
+            onPressed: count == 0
+                ? null
+                : () {
+                    ref
+                        .read(counterNotifierProvider.notifier)
+                        .update((state) => state -= 1);
+                  },
             child: const Icon(Icons.remove),
           ),
         ],

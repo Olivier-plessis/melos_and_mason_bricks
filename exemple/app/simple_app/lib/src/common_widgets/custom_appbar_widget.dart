@@ -18,7 +18,6 @@ class CustomBarWidget extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       title: Text(
         title,
-        style: const TextStyle(color: Colors.black),
       ),
       // backgroundColor: Colors.white,
       toolbarHeight: preferredSize.height,
@@ -28,7 +27,7 @@ class CustomBarWidget extends StatelessWidget implements PreferredSizeWidget {
             color: Colors.blue,
             onPressed: onPressed,
             icon: Icon(
-                color: themeRef ? Colors.teal : Colors.brown,
+                color: themeRef ? Colors.teal : Colors.grey,
                 themeRef ? Icons.light_mode : Icons.dark_mode))
       ],
     );
