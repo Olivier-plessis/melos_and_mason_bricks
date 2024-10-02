@@ -23,7 +23,7 @@ you can add the **style_ui** brick to the configuration by adding the following 
 
 ``` yaml
 bricks:
-  feature_brick:
+  style_ui:
     git:
       url: "https://github.com/Olivier-plessis/melos_and_mason_bricks.git"
       path: bricks/style_ui
