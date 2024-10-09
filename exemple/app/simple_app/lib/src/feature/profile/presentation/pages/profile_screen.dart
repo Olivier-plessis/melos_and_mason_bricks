@@ -6,6 +6,7 @@ import 'package:simple_ui/simple_ui.dart';
 
 class ProfileScreen extends StatefulHookConsumerWidget {
   const ProfileScreen({super.key});
+
   @override
   ConsumerState<ConsumerStatefulWidget> createState() => _ProfileScreenState();
 }

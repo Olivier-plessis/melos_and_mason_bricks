@@ -48,4 +48,20 @@ class Observers extends ProviderObserver {
       "containers": "$containers"
     }''');
   }
+
+  @override
+  void providerDidFail(
+    ProviderBase<Object?> provider,
+    Object error,
+    StackTrace stackTrace,
+    ProviderContainer container,
+  ) {
+    L.log('''
+    {
+      "provider": "${provider.name ?? provider.runtimeType}",
+      "error": "$error",
+      "stackTrace": "$stackTrace",
+      "container": "$container"
+    }''');
+  }
 }

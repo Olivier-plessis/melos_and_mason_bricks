@@ -8,6 +8,7 @@ import 'package:simple_ui/simple_ui.dart';
 
 class OnboardingScreen extends HookConsumerWidget {
   const OnboardingScreen({super.key});
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(onboardingProvider);
@@ -16,7 +17,9 @@ class OnboardingScreen extends HookConsumerWidget {
           child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text('Onboarding screen'),
+          Text('Onboarding screen',
+              style: StyleTheme.titleSmall
+                  .copyWith(color: Palette.secondaryColor)),
           PrimaryButton(
             text: 'Get Started Now !',
             isLoading: state.isLoading,
