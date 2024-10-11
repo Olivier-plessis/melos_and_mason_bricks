@@ -12,7 +12,7 @@ import 'package:{{name.snakeCase()}}/src/core/utils/observers.dart';
 {{#isBloc}}
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:{{name.snakeCase()}}/src/core/utils/bloc_observer.dart';
-import 'package:{{name.snakeCase()}}/src/core/utils/bloc_widget.dart';
+import 'package:{{name.snakeCase()}}/src/core/services/bloc_widget.dart';
 {{/isBloc}}
 
 import 'package:{{name.snakeCase()}}/src/app.dart';

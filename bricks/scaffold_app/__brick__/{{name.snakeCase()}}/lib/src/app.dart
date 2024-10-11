@@ -14,7 +14,7 @@ import 'package:{{name.snakeCase()}}/src/router/app_router.dart';
 {{#isBloc}}
 import 'package:{{name.snakeCase()}}/src/core/theme/brightness_theme/brightness_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:{{name.snakeCase()}}/src/router/router_cubit.dart';
+import 'package:{{name.snakeCase()}}/src/router/router_bloc.dart';
 {{/isBloc}}
 
 class MainApp extends  {{#isRiverpod}} ConsumerWidget {{/isRiverpod}}{{#isBloc}} StatelessWidget {{/isBloc}} {
@@ -26,7 +26,7 @@ class MainApp extends  {{#isRiverpod}} ConsumerWidget {{/isRiverpod}}{{#isBloc}}
     {{#isRiverpod}} final ThemeMode themeMode = ref.watch(themeModeControllerProvider); {{/isRiverpod}}
     {{#isBloc}} final themeMode = context.watch<BrightnessBloc>().state.themeMode; {{/isBloc}}
 
-    final goRouter = {{#isRiverpod}}ref.watch(goRouterProvider){{/isRiverpod}}{{#isBloc}}context.read<RouterCubit>().state{{/isBloc}};
+    final goRouter = {{#isRiverpod}}ref.watch(goRouterProvider){{/isRiverpod}}{{#isBloc}}context.read<RouterBloc>().state{{/isBloc}};
     return ScreenUtilInit(
       designSize: ScreenUtil.defaultSize,
       splitScreenMode: true,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:{{name.snakeCase()}}/src/core/theme/brightness_theme/brightness_bloc.dart';
-import 'package:{{name.snakeCase()}}/src/router/router_cubit.dart';
+import 'package:{{name.snakeCase()}}/src/router/router_bloc.dart';
 
 class BlocWidget extends StatelessWidget {
   const BlocWidget({super.key, required this.child});
@@ -13,7 +13,7 @@ class BlocWidget extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<BrightnessBloc>(create: (context) => BrightnessBloc()),
-          BlocProvider<RouterCubit>(create: (context) => RouterCubit()),
+          BlocProvider<RouterBloc>(create: (context) => RouterBloc()),
       ],
       child: child,
     );
