@@ -51,7 +51,6 @@ vars:
     values:
       - riverpod
       - bloc
-      - cubit
   add_dependencies :
     type: string
     prompt: Add dependencies to your project and separate them with a comma?
