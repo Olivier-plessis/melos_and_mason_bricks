@@ -20,7 +20,7 @@ void run(HookContext context) async {
 
   checkIfExists(dr);
 
-  final path = 'app';
+  final path = 'apps';
   final dir = io.Directory(path);
 
   checkIfExists(dir);
@@ -33,6 +33,19 @@ void run(HookContext context) async {
   final org = context.vars['org'] as String;
   assertValidOrg(org);
   context.vars['reversedOrg'] = org.split('.').reversed.join('.');
+
+  final stateManagement =
+      context.vars['state_management'].toString().toLowerCase();
+  final isBloc = stateManagement == 'bloc';
+  final isCubit = stateManagement == 'cubit';
+  final isRiverpod = stateManagement == 'riverpod';
+
+  context.vars = {
+    ...context.vars,
+    'isBloc': isBloc,
+    'isCubit': isCubit,
+    'isRiverpod': isRiverpod,
+  };
 
   // Platform assertions and pre-process
   final platforms = context.vars['platforms'] as List<dynamic>;

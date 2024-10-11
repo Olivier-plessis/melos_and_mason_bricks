@@ -39,12 +39,6 @@ Future<void> run(HookContext context) async {
 
   await executeAndLog(
       context: context,
-      cb: runDartFormat,
-      message: 'Formatting code in progress ..');
-  await Future<void>.delayed(_duration);
-
-  await executeAndLog(
-      context: context,
       cb: runMoveGeneratedApp,
       message: 'Moving generated app in progress ..');
   await Future<void>.delayed(_duration);
@@ -59,6 +53,12 @@ Future<void> run(HookContext context) async {
       context: context,
       cb: addBuilderScript,
       message: 'Adding builder script in melos file..');
+  await Future<void>.delayed(_duration);
+
+  await executeAndLog(
+      context: context,
+      cb: runDartFormat,
+      message: 'Formatting code in progress ..');
   await Future<void>.delayed(_duration);
 }
 

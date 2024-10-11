@@ -44,6 +44,14 @@ vars:
       - windows
       - linux
       - web
+  state_management:
+    type: enum
+    prompt: Pick the state management solution you want to use
+    default: riverpod
+    values:
+      - riverpod
+      - bloc
+      - cubit
   add_dependencies :
     type: string
     prompt: Add dependencies to your project and separate them with a comma?

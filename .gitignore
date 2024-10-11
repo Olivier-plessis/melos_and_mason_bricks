@@ -2,3 +2,4 @@
 .DS_STORE
 pubspec.lock
 .dart_tool
+/exemple

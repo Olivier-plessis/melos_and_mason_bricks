@@ -5,7 +5,7 @@ import 'package:mason/mason.dart';
 Future<void> runMoveGeneratedApp(HookContext context) async {
   final appName = (context.vars['name'] as String).snakeCase;
 
-  var result = await io.Process.run('mv', [appName, 'app']);
+  var result = await io.Process.run('mv', [appName, 'apps']);
 
   io.stdout.write(result.stdout);
   io.stderr.write(result.stderr);

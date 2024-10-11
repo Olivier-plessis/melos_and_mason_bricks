@@ -8,6 +8,7 @@ Future<void> runDartFormat(HookContext context) async {
   final _ = await io.Process.run(
     'dart',
     ['format', '.'],
-    workingDirectory: './$name',
+    runInShell: true,
+    workingDirectory: './apps/$name',
   );
 }

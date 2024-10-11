@@ -1,12 +1,5 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:logger/logger.dart';
-
-class L {
-  static void log(dynamic msg) {
-    final Logger logger = Logger();
-    logger.log(Level.debug, msg);
-  }
-}
+import 'package:{{name.snakeCase()}}/src/core/utils/logger.dart';
 
 class Observers extends ProviderObserver {
   @override

@@ -1,18 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
+
 import 'package:{{name.snakeCase()}}/src/core/theme/app_theme_data.dart';
+
+{{#isRiverpod}}
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:{{name.snakeCase()}}/src/core/theme/theme_mode_controller.dart';
 import 'package:{{name.snakeCase()}}/src/router/app_router.dart';
+{{/isRiverpod}}
 
-class MainApp extends ConsumerWidget {
+
+
+{{#isBloc}}
+import 'package:{{name.snakeCase()}}/src/core/theme/brightness_theme/brightness_bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:{{name.snakeCase()}}/src/router/router_cubit.dart';
+{{/isBloc}}
+
+class MainApp extends  {{#isRiverpod}} ConsumerWidget {{/isRiverpod}}{{#isBloc}} StatelessWidget {{/isBloc}} {
+
   const MainApp({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final ThemeMode themeMode = ref.watch(themeModeControllerProvider);
+  Widget build(BuildContext context  {{#isRiverpod}}, WidgetRef ref {{/isRiverpod}}) {
+    {{#isRiverpod}} final ThemeMode themeMode = ref.watch(themeModeControllerProvider); {{/isRiverpod}}
+    {{#isBloc}} final themeMode = context.watch<BrightnessBloc>().state.themeMode; {{/isBloc}}
 
-    final goRouter = ref.watch(goRouterProvider);
+    final goRouter = {{#isRiverpod}}ref.watch(goRouterProvider){{/isRiverpod}}{{#isBloc}}context.read<RouterCubit>().state{{/isBloc}};
     return ScreenUtilInit(
       designSize: ScreenUtil.defaultSize,
       splitScreenMode: true,

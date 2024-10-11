@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+{{#isBloc}}import 'package:{{name.snakeCase()}}/src/core/theme/brightness_theme/brightness_bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';{{/isBloc}}
 
 class CustomBarWidget extends StatelessWidget implements PreferredSizeWidget {
   final String title;
@@ -20,16 +22,20 @@ class CustomBarWidget extends StatelessWidget implements PreferredSizeWidget {
         title,
         style: const TextStyle(color: Colors.black),
       ),
-      // backgroundColor: Colors.white,
       toolbarHeight: preferredSize.height,
       automaticallyImplyLeading: true,
       actions: [
         IconButton(
             color: Colors.blue,
             onPressed: onPressed,
-            icon: Icon(
+            icon: {{#isRiverpod}}Icon(
                 color: themeRef ? Colors.teal : Colors.brown,
-                themeRef ? Icons.light_mode : Icons.dark_mode))
+                themeRef ? Icons.light_mode : Icons.dark_mode){{/isRiverpod}}
+                {{#isBloc}} Icon(
+                    context.watch<BrightnessBloc>().toggleIcon(),
+                    color: context.watch<BrightnessBloc>().toggleColor(),
+                  ),{{/isBloc}}
+        )
       ],
     );
   }

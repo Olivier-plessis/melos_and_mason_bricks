@@ -8,19 +8,21 @@ Future<void> addDevDependencies(HookContext context) async {
   final addDevDependencies = context.vars['add_dev_dependencies'] as String;
 
   final codegen = context.vars['codegen'] as bool;
-
+  final stateManagement =
+      context.vars['state_management'].toString().toLowerCase();
+  final isRiverpod = stateManagement == 'riverpod';
   final devDependencies = [
     if (codegen) 'go_router_builder',
     'build_runner',
-    'riverpod_generator',
-    'freezed',
-    'json_serializable',
     'custom_lint',
+    'freezed',
     'flutter_lints',
     'http_mock_adapter',
+    'json_serializable',
     'logger',
     'mocktail',
-    'riverpod_lint',
+    if (isRiverpod) 'riverpod_generator',
+    if (isRiverpod) 'riverpod_lint',
     if (addDevDependencies.isNotEmpty) addDevDependencies
   ];
 
