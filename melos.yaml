@@ -1,7 +1,7 @@
 name: starter_app //replace with your project name
 
 packages:
-  - app/**
+  - apps/**
   - packages/**
 
 scripts:
