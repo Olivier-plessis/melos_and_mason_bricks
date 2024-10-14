@@ -49,7 +49,7 @@ New to Mason? Read [the documentation][mason_doc_link] to learn how to spin up t
 
 ## Work in progress
 - [x] Scaffold app with selectable state management Riverpod, Bloc
-- [ ] Scaffold app with cubit
+- [x] Scaffold app with cubit
 - [ ] feature brick Bloc
 - [ ] feature brick cubit
 - [x] Component UI  - TextField, Button, etc... **based on Atomic Design**

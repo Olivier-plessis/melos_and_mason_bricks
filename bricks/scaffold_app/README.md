@@ -20,9 +20,8 @@ A new brick created with the Mason CLI.
 
 | Date             | Description                                                      | 
 | ---------------- | ---------------------------------------------------------------- | 
-| `October 2024`   | Add state management Bloc. You can choose between Riverpod or Bloc |
-
-next step: Cubit add-on
+| `October 8 2024`   | Add state management Bloc. You can choose between Riverpod or Bloc |
+| `October 14 2024`   | Add state management Cubit. You can choose between Riverpod or Bloc or Cubit |
 
 
 ### Dependency installed by default
@@ -75,7 +74,7 @@ Then add your properties!
 | `org`                 | The name of the organization                              | com.example                                     | `string` |
 | `description`         | The description of your app                               | An awesome flutter app generate by mason        | `string` |
 | `platforms`           | Select your platform desired                              | android, ios, macos, windows, linux, web        | `array`  |
-| `state_management`           | Select your state management desired                              | riverpod, bloc        | `enum`  |
+| `state_management`           | Select your state management desired                              | riverpod, bloc or cubit        | `enum`  |
 | `add_dependencies`    | Add dependencies to your project and separate them with a comma | ''                                       | `string` |
 | `add_dev_dependencies`| Add dev dependencies to your project and separate them with a comma | ''                                   | `string` |
 | `codegen`             | Do you want to use go_router_builder?                      | false                                          | `boolean`|
@@ -97,20 +96,22 @@ Follow the instructions in the prompt and **VOILA**, your app is now installed i
 │   │       │   ├── dark_theme.dart // using flex_color_scheme
 │   │       │   ├── light_theme.dart // using flex_color_scheme
 │   │       │   ├── theme_mode_controller.dart // Riverpod
-│   │       │   ├── brightness_theme // Bloc
+│   │       │   ├── brightness_theme // Bloc or Cubit
 │   │   │   ├── utils
-│   │       │   ├── bloc_observer.dart // Bloc
+│   │       │   ├── bloc_observer.dart // Bloc or Cubit
 │   │       │   ├── dio_provider.dart // Riverpod
 │   │       │   ├── observers.dart // Riverpod
 │   │       │   ├── logger_interceptor.dart
 │   │       │   ├── register_error_handler.dart // to display error in app
 │   │   │   ├── services
-│   │       │   ├── bloc_widget.dart // Bloc - MultiBlocProvider to declare your global blocs
+│   │       │   ├── bloc_widget.dart // Bloc or Cubit - MultiBlocProvider to declare your global blocs
 │   │   └── feature
 │   │       ├── counter
 │   │       │   ├── ├── presentation
 │   │       │   │   ├──  ├── provider // Riverpod
 │   │       │   ├──         ├── counter_provider.dart
+│   │       │   │   ├──  ├── bloc // Cubit
+│   │       │   ├──         ├── counter_cubit.dart
 │   │       │   │   ├──  ├── bloc // Bloc
 │   │       │   ├──         ├── counter_bloc.dart
 │   │       │   ├──         ├── counter_state.dart
@@ -126,6 +127,7 @@ Follow the instructions in the prompt and **VOILA**, your app is now installed i
 │   │       ├── not_found_screen.dart // not found screen
 │   │       ├── scaffold_with_nested_navigation.dart // scaffold with  navigation bar and navigation rail
 │   │       ├── router_bloc.dart // Bloc
+│   │       ├── router_cubit.dart // Cubit
 │   │   └── app.dart
 │   │   └── splash_screen.dart // splash screen
 │   ├── main.dart
