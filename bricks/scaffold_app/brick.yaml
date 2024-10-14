@@ -1,7 +1,7 @@
 name: scaffold_app
 description: A Riverpod od Bloc clean architecture feature builder based on solid principles for Flutter projects.
 
-version: 0.2.2
+version: 0.2.3
 
 # The following defines the environment for the current brick.
 # It includes the version of mason that the brick requires.
@@ -52,14 +52,14 @@ vars:
       - riverpod
       - bloc
       - cubit
-  add_dependencies :
+  add_dependencies:
     type: string
     prompt: Add dependencies to your project and separate them with a comma?
-    default: ''
-  add_dev_dependencies :
+    default: ""
+  add_dev_dependencies:
     type: string
     prompt: Add dev dependencies to your project and separate them with a comma?
-    default: ''
+    default: ""
   codegen:
     type: boolean
     prompt: Do you want to use go_router_builder?

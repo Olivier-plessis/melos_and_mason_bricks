@@ -41,7 +41,7 @@ New to Mason? Read [the documentation][mason_doc_link] to learn how to spin up t
 
 | Brick | Description| Version |
 | - | - | - |
-| [scaffold_app](https://github.com/Olivier-plessis/melos_and_mason_bricks/tree/feature/bricks/bricks/scaffold_app)| A brick to generate a new Flutter app with clean architecture and best practices. | 0.2.2
+| [scaffold_app](https://github.com/Olivier-plessis/melos_and_mason_bricks/tree/feature/bricks/bricks/scaffold_app)| A brick to generate a new Flutter app with clean architecture and best practices. | 0.2.3
 | [feature_brick](https://github.com/Olivier-plessis/melos_and_mason_bricks/tree/feature/bricks/bricks/feature_brick)| A brick to add a new feature to your app with go_router! | 0.0.1
 | [feature_brick_go_router_builder](https://github.com/Olivier-plessis/melos_and_mason_bricks/tree/feature/bricks/bricks/feature_brick_go_router_builder)| A brick to add a new feature to your app with go_router_builder! | 0.0.1
 | [style_ui](https://github.com/Olivier-plessis/melos_and_mason_bricks/tree/feature/bricks/bricks/style_ui)| A brick to add a style_ui! | 0.0.1
