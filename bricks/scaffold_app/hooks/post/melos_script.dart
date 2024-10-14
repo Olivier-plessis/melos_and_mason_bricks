@@ -31,7 +31,7 @@ Future<void> addBuilderScript(HookContext context) async {
         )
         .replaceFirst(
           'all:\n    run: |\n      melos clean\n      melos bs\n',
-          'all:\n    run: |\n      melos clean\n      melos bs\n      melos watch_runner\n      melos build_runner\n',
+          'all:\n    run: |\n      melos clean\n      melos bs\n      melos build_runner\n',
         );
 
     melosFile.writeAsStringSync(newContent);
