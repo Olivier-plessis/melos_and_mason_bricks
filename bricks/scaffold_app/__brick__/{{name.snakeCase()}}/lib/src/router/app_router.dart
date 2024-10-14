@@ -17,10 +17,10 @@ import 'router_observer.dart';
 {{#isRiverpod}}
 
 part 'app_router.g.dart';{{/isRiverpod}}
-{{#isBloc}}
+{{#isBlocOrCubit}}
 final GlobalKey<NavigatorState> _rootNavigatorKey =
     GlobalKey<NavigatorState>(debugLabel: 'root');
-{{/isBloc}}
+{{/isBlocOrCubit}}
 {{#isRiverpod}}
 @riverpod
 GoRouter goRouter(GoRouterRef ref) {
@@ -51,7 +51,7 @@ GoRouter goRouter(GoRouterRef ref) {
 }
 {{/isRiverpod}}
 
-{{#isBloc}}
+{{#isBlocOrCubit}}
 mixin AppRouter {
   static GoRouter router = GoRouter(
     initialLocation: AppPage.splash.routePath,
@@ -73,4 +73,4 @@ mixin AppRouter {
     
   );
 }
-{{/isBloc}}
+{{/isBlocOrCubit}}

@@ -39,12 +39,14 @@ void run(HookContext context) async {
   final isBloc = stateManagement == 'bloc';
   final isCubit = stateManagement == 'cubit';
   final isRiverpod = stateManagement == 'riverpod';
-
+  final isBlocOrCubit = isBloc || isCubit;
+  
   context.vars = {
     ...context.vars,
     'isBloc': isBloc,
     'isCubit': isCubit,
     'isRiverpod': isRiverpod,
+    'isBlocOrCubit': isBlocOrCubit,
   };
 
   // Platform assertions and pre-process

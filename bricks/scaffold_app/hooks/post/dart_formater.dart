@@ -9,6 +9,6 @@ Future<void> runDartFormat(HookContext context) async {
     'dart',
     ['format', '.'],
     runInShell: true,
-    workingDirectory: './apps/$name',
+    workingDirectory: './$name',
   );
 }

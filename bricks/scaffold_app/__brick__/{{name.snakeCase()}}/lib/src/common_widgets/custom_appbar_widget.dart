@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-{{#isBloc}}import 'package:{{name.snakeCase()}}/src/core/theme/brightness_theme/brightness_bloc.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';{{/isBloc}}
+{{#isBlocOrCubit}}import 'package:flutter_bloc/flutter_bloc.dart';{{/isBlocOrCubit}}
+{{#isBloc}}import 'package:{{name.snakeCase()}}/src/core/theme/brightness_theme/brightness_bloc.dart';{{/isBloc}}
+{{#isCubit}}import 'package:{{name.snakeCase()}}/src/core/theme/brightness_theme/brightness_cubit.dart';{{/isCubit}}
 
 class CustomBarWidget extends StatelessWidget implements PreferredSizeWidget {
   final String title;
@@ -35,6 +36,10 @@ class CustomBarWidget extends StatelessWidget implements PreferredSizeWidget {
                     context.watch<BrightnessBloc>().toggleIcon(),
                     color: context.watch<BrightnessBloc>().toggleColor(),
                   ),{{/isBloc}}
+                {{#isCubit}} Icon(
+                    context.watch<BrightnessCubit>().toggleIcon(),
+                    color: context.watch<BrightnessCubit>().toggleColor(),
+                  ),{{/isCubit}}
         )
       ],
     );

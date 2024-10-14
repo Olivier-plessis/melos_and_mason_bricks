@@ -9,6 +9,7 @@ Future<void> addDependencies(HookContext context) async {
   final stateManagement =
       context.vars['state_management'].toString().toLowerCase();
   final isBloc = stateManagement == 'bloc';
+  final isCubit = stateManagement == 'cubit';
   final isRiverpod = stateManagement == 'riverpod';
 
   final dependencies = [
@@ -22,7 +23,7 @@ Future<void> addDependencies(HookContext context) async {
     'flex_color_scheme',
     'flutter_screenutil',
     'fpdart',
-    if (isBloc) 'flutter_bloc',
+    if (isBloc || isCubit) 'flutter_bloc',
     if (addDependencies.isNotEmpty) addDependencies
   ];
 

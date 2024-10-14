@@ -9,29 +9,29 @@ import 'package:{{name.snakeCase()}}/src/core/utils/observers.dart';
 
 {{/isRiverpod}}
 
-{{#isBloc}}
+{{#isBlocOrCubit}}
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:{{name.snakeCase()}}/src/core/utils/bloc_observer.dart';
 import 'package:{{name.snakeCase()}}/src/core/services/bloc_widget.dart';
-{{/isBloc}}
+{{/isBlocOrCubit}}
 
 import 'package:{{name.snakeCase()}}/src/app.dart';
 
 import 'package:{{name.snakeCase()}}/src/core/utils/register_error_handler.dart';
 
 Future<void> main() async {
-  {{#isBloc}}Bloc.observer = AppBlocObserver();{{/isBloc}}
+  {{#isBlocOrCubit}}Bloc.observer = AppBlocObserver();{{/isBlocOrCubit}}
   // turn off the # in the URLs on the web and remove if only mobil app development
   usePathUrlStrategy();
   registerErrorHandler();
  
   runZonedGuarded(() async {
     WidgetsFlutterBinding.ensureInitialized();
-    runApp({{#isBloc}}const BlocWidget({{/isBloc}}
+    runApp({{#isBlocOrCubit}}const BlocWidget({{/isBlocOrCubit}}
       {{#isRiverpod}}ProviderScope(observers: <ProviderObserver>[
           Observers(),
         ],{{/isRiverpod}}
-     child: const MainApp()));
+     child:  MainApp()));
   }, (error, stackTrace) async {
     debugPrint('$error');
     debugPrint('$stackTrace');
