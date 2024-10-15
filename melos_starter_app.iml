@@ -26,6 +26,9 @@
       <excludeFolder url="file://$MODULE_DIR$/exemple/packages/simple_ui/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/exemple/packages/simple_ui/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/exemple/packages/simple_ui/build" />
+      <excludeFolder url="file://$MODULE_DIR$/exemple/apps/cubit_app/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/exemple/apps/cubit_app/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/exemple/apps/cubit_app/build" />
     </content>
     <content url="file://$USER_HOME$/development/flutter/bin/cache/dart-sdk">
       <excludeFolder url="file://$USER_HOME$/development/flutter/bin/cache/dart-sdk/lib/_internal/js_runtime/.dart_tool" />

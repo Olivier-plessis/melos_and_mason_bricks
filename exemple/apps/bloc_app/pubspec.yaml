@@ -1,0 +1,35 @@
+name: bloc_app
+description: "An awesome flutter app generate by mason"
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: ">=3.3.1 <4.0.0"
+
+dependencies:
+  dio: ^5.7.0
+  flex_color_scheme: ^7.3.1
+  flutter:
+    sdk: flutter
+  flutter_bloc: ^8.1.6
+  flutter_hooks: ^0.20.5
+  flutter_screenutil: ^5.9.3
+  fpdart: ^1.1.0
+  freezed_annotation: ^2.4.4
+  go_router: ^14.3.0
+  json_annotation: ^4.9.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  build_runner: ^2.4.13
+  custom_lint: ^0.6.8
+  freezed: ^2.5.7
+  http_mock_adapter: ^0.6.1
+  json_serializable: ^6.8.0
+  logger: ^2.4.0
+  mocktail: ^1.0.4
+
+flutter:
+  uses-material-design: true

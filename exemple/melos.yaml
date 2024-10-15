@@ -1,6 +1,6 @@
 name: exemple
 packages:
-  - app/**
+  - apps/**
   - packages/**
 
 scripts:
