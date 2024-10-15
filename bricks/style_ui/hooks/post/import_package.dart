@@ -11,7 +11,7 @@ Future<void> importPackageInApp(HookContext context) async {
   final movingTheme = context.vars['movingTheme'] as bool;
 
   final currentDir = Directory.current.path;
-  final filePath = p.join(currentDir, 'app/$appName/lib/src/app.dart');
+  final filePath = p.join(currentDir, 'apps/$appName/lib/src/app.dart');
 
   final file = File(filePath);
 
@@ -30,8 +30,14 @@ Future<void> importPackageInApp(HookContext context) async {
   // Ensure the import line is before the MainApp class
   final mainAppIndex =
       newContent.indexOf('class MainApp extends ConsumerWidget');
-  if (mainAppIndex != -1 &&
-      !newContent.substring(0, mainAppIndex).contains(importLine)) {
+  final statelessMainAppIndex =
+      newContent.indexOf('class MainApp extends StatelessWidget');
+
+  if ((mainAppIndex != -1 || statelessMainAppIndex != -1) &&
+      !newContent
+          .substring(
+              0, mainAppIndex != -1 ? mainAppIndex : statelessMainAppIndex)
+          .contains(importLine)) {
     final lastImportMatch = RegExp(r"^import\s'[^']+';", multiLine: true)
         .allMatches(newContent)
         .last;

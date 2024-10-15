@@ -3,7 +3,7 @@ import 'package:mason/mason.dart';
 
 Future<void> addToParentDependencies(HookContext context) async {
   final name = context.vars['name'] as String;
-  final pubspecPath = 'app/${context.vars['appName']}/pubspec.yaml';
+  final pubspecPath = 'apps/${context.vars['appName']}/pubspec.yaml';
   final file = io.File(pubspecPath);
   final content = await file.readAsLines();
   final styleUiDependency = '  $name:';
@@ -37,7 +37,7 @@ Future<void> addToParentDependencies(HookContext context) async {
   final _ = await io.Process.run(
     'melos',
     ['bs'],
-    workingDirectory: 'app/${context.vars['appName']}',
+    workingDirectory: 'apps/${context.vars['appName']}',
     runInShell: true,
   );
 

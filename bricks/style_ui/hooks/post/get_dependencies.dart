@@ -8,11 +8,10 @@ Future<void> getDependencies(HookContext context) async {
   final _ = await io.Process.run(
     'flutter',
     ['pub', 'get'],
-    workingDirectory: 'app/$appName',
+    workingDirectory: 'apps/$appName',
     runInShell: true,
   );
 }
-
 
 Future<void> runDartFormat(HookContext context) async {
   final appName = context.vars['appName'];
@@ -20,6 +19,6 @@ Future<void> runDartFormat(HookContext context) async {
   final _ = await io.Process.run(
     'dart',
     ['format', '.'],
-    workingDirectory: 'app/$appName',
+    workingDirectory: 'apps/$appName',
   );
 }

@@ -1,0 +1,27 @@
+import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+
+{{#isStFullHook}}
+class {{feature_name.pascalCase()}}Screen extends StatefulHookConsumerWidget {
+  const {{feature_name.pascalCase()}}Screen({super.key});
+  @override
+  ConsumerState<ConsumerStatefulWidget> createState() => _{{feature_name.pascalCase()}}ScreenState();
+}
+class _{{feature_name.pascalCase()}}ScreenState extends ConsumerState<{{feature_name.pascalCase()}}Screen> {
+  @override
+  Widget build(BuildContext context) {
+    return const Center(child: Text('Hello {{feature_name.pascalCase()}}!'));
+  }
+}
+{{/isStFullHook}}
+{{^isStFullHook}}
+class {{feature_name.pascalCase()}}Screen extends HookConsumerWidget {
+  const {{feature_name.pascalCase()}}Screen({super.key});
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+   return const Center(child: Text('Hello {{feature_name.pascalCase()}}!'));
+  }
+}
+{{/isStFullHook}}
+

@@ -21,7 +21,7 @@ Future<void> movingTheme(HookContext context) async {
       final result = await Process.run(
         'mv',
         [
-          'app/$appName/lib/src/core/theme/$file',
+          'apps/$appName/lib/src/core/theme/$file',
           'packages/$name/lib/src/theme/',
         ],
       );
