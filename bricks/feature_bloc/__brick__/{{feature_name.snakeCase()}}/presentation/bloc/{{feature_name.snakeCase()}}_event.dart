@@ -1,0 +1,1 @@
+sealed class {{feature_name.pascalCase()}}Event {}

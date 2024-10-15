@@ -1,8 +1,8 @@
-sealed class CounterStates {
+sealed class CounterState {
   final int counter;
-  const CounterStates({required this.counter});
+  const CounterState({required this.counter});
 }
 
-final class InitialState extends CounterStates {
+final class InitialState extends CounterState {
   const InitialState({required int counter}) : super(counter: counter);
 }

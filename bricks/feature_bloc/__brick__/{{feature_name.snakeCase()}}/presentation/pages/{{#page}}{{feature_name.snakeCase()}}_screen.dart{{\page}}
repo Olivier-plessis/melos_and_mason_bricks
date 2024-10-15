@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 
 {{#isStFullHook}}
-class {{feature_name.pascalCase()}}Screen extends StatefulHookConsumerWidget {
+class {{feature_name.pascalCase()}}Screen extends StatefulWidget {
   const {{feature_name.pascalCase()}}Screen({super.key});
   @override
-  ConsumerState<ConsumerStatefulWidget> createState() => _{{feature_name.pascalCase()}}ScreenState();
+  State<{{feature_name.pascalCase()}}Screen> createState() => _{{feature_name.pascalCase()}}ScreenState();
 }
-class _{{feature_name.pascalCase()}}ScreenState extends ConsumerState<{{feature_name.pascalCase()}}Screen> {
+class _{{feature_name.pascalCase()}}ScreenState extends State<{{feature_name.pascalCase()}}Screen> {
   @override
   Widget build(BuildContext context) {
     return const Center(child: Text('Hello {{feature_name.pascalCase()}}!'));
@@ -16,10 +15,10 @@ class _{{feature_name.pascalCase()}}ScreenState extends ConsumerState<{{feature_
 }
 {{/isStFullHook}}
 {{^isStFullHook}}
-class {{feature_name.pascalCase()}}Screen extends HookConsumerWidget {
+class {{feature_name.pascalCase()}}Screen extends StatelessWidget {
   const {{feature_name.pascalCase()}}Screen({super.key});
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context) {
    return const Center(child: Text('Hello {{feature_name.pascalCase()}}!'));
   }
 }

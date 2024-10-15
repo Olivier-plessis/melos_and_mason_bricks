@@ -1,5 +1,7 @@
 import 'package:mason/mason.dart';
 
-void run(HookContext context) {
-  // TODO: add pre-generation logic.
+import 'pre/get_project_info.dart';
+
+Future<void> run(HookContext context) async {
+  await getProjectInfo(context);
 }
