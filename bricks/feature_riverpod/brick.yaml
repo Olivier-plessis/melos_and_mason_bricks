@@ -13,7 +13,7 @@ version: 0.2.0
 # The following defines the environment for the current brick.
 # It includes the version of mason that the brick requires.
 environment:
-  mason: ">=0.1.0-dev.57 <0.1.0"
+  mason: ">=0.1.0 <0.2.0"
 
 # Variables specify dynamic values that your brick depends on.
 # Zero or more variables can be specified for a given brick.
@@ -56,4 +56,4 @@ vars:
     type: boolean
     description: Add feature in the navigation bar?
     default: true
-    prompt: Do you want to add this feature in the navigation bar?    
+    prompt: Do you want to add this feature in the navigation bar?
